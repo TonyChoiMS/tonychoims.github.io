@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Unreal Engine System에 대해서.."
-date:   2018-04-08
+date:   2018-04-05
 desc: "Unreal Engine에서 System에 관련된 행동을 하는 객체들에 대한 생각과 고민에 대한 블로깅"
 keywords: "Unreal,UnrealEngine,GameProgramming"
 categories: [Unreal]
