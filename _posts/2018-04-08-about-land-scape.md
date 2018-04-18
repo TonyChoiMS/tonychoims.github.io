@@ -15,7 +15,7 @@ icon: icon-html
 - 높이(Z) 값만 조각 기능을 통해서 제공
 - 버텍스 사이의 길이는 100 -> Scale값, 단위는 cm
 - 연두색으로 나뉘어 있는 큰 단위는 Section
-- Componenet는 Section의 모임
+- Component는 Section의 모임
 - Number Of Component : 한 랜드스케이프에 들어가는 컴포넌트의 갯수
 * 정리
  - 한개의 랜드스케이프에 여러개의 컴포넌트가 들어가고,
