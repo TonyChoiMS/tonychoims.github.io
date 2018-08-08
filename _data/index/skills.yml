@@ -2,5 +2,5 @@
 
 label: Ability
 id : cs
-aspects: GitHub, Android, HTML5, PHP, C Language, MariaDB, Sleeping
-percentage: 50, 80, 70, 70, 50, 60, 90
+aspects: C#, Android, HTML5, PHP, C/C++ Language, MySQL, Sleeping
+percentage: 80, 80, 70, 70, 60, 60, 90

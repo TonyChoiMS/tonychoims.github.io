@@ -6,17 +6,17 @@
 - name: Unreal Engine
   href: /unreal/
 
-- name: Android
-  href: /android/
+- name: Unity3d
+  href: /unity/
 
 - name: Algorithm
   href: /algorithm/
 
+- name: Computer Science
+  href: /computer/
+
 - name: Design Pattern
   href: /designpattern/
-
-- name: Mac
-  href: /mac/
 
 - name: Life
   href: /life/
