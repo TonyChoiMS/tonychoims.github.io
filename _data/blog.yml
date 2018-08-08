@@ -4,7 +4,7 @@
 
 # edit following lines to custom your blog page, make sure name is the same as href but capitalized first letter(except HTML)
 - name: Unreal Engine
-  href: /unreal/
+  href: /Unreal Engine/
 
 - name: Unity3d
   href: /unity/
