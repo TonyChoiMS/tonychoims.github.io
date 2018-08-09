@@ -1,0 +1,43 @@
+# careers section data
+# if you don't have language feature(language.yml is empty), ignore "i18n" items
+- name:
+    detail: Company GalaLab
+    i18n: company_galalab
+  desc:
+      detail: Using Unity3d to make Mobile game.
+      i18n: company_galalab_desc
+  date:
+      detail: Jul. 2018 ~ ing.
+      i18n: company_galalab_date
+  job:
+      detail: Game Developer
+      i18n: company_galalab_job
+  icon: fa-plus-square
+
+- name:
+    detail: Company Rainbow8
+    i18n: company_rainbow
+  desc:
+    detail: Develop Android Native App and Web backend PHP.
+    i18n: company_rainbow_desc
+  date:
+    detail: Sep. 2016 ~ Jan. 2018
+    i18n: company_rainbow_date
+  job:
+    detail: Android & PHP Developer
+    i18n: company_rainbow_job
+  icon: fa-plus-square
+
+- name:
+    detail: Fillpic
+    i18n: company_fillpic
+  desc:
+    detail: Develop SNS Android Native App.
+    i18n: company_fillpic_desc
+  date:
+    detail: Aug. 2015 ~ Oct. 2016
+    i18n: company_fillpic_date
+  job:
+    detail: Android Developer
+    i18n: company_fillpic_job
+  icon: fa-plus-square
