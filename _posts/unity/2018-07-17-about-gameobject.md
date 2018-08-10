@@ -11,9 +11,9 @@ icon: icon-html
 
 * 최종 수정일 : 2018-08-10
 
-# **[GameObject]**
+# > **[GameObject]**
 
-> 유니티는 컴포넌트 기반 개발(CBD : Component Based Development) 방법론을 지원한다.
+ - 유니티는 컴포넌트 기반 개발(CBD : Component Based Development) 방법론을 지원한다.
 
  - CBD는 독립적인 기능 단위로 컴포넌트를 제작해 필요한 기능을 조립하는 방식.
 
@@ -35,7 +35,9 @@ icon: icon-html
 
 
 
-## 유니티에서 GameObject에게 제공하는 기본함수
+
+
+## __유니티에서 GameObject에게 제공하는 기본함수__
 
  1. Awake
 
@@ -50,6 +52,8 @@ icon: icon-html
 - Coroutine으로 실행 불가.
 
 
+
+
 2. Start
 
 - Update 함수가 호출되기 이전에 한 번만 호출되는 함수.
@@ -61,6 +65,8 @@ icon: icon-html
 - Coroutine으로 실행 가능
 
 
+
+
 3. Update
 
 - 매 프레임마다 호출되는 함수.
@@ -68,6 +74,8 @@ icon: icon-html
 - 주로 게임의 핵심 로직을 작성하는데 사용.
 
 - 스크립트가 활성화 돼 있어야 실행된다.
+
+
 
 
 4. LateUpdate
@@ -81,11 +89,15 @@ icon: icon-html
 - 스크립트가 활성화 돼 있어야 실행된다.
 
 
+
+
 5. FixedUpdate
 
 - 물리엔진의 시뮬레이션 계산주기로 기본값은 0.02초다.
 
 - 발생하는 주기가 일정하다.
+
+
 
 
 6. OnEnable
@@ -97,6 +109,8 @@ icon: icon-html
 - Coroutine 사용 불가.
 
 
+
+
 7. OnDisable
 
 - 게임오브젝트 또는 스크립트가 비활성화 됐을 때 호출된다.
@@ -106,13 +120,19 @@ icon: icon-html
 - Coroutine 사용 불가.
 
 
+
+
 8. OnGUI
 
 - 레거시 GUI 관련 함수를 사용할 때 사용한다.
 
+
+
 ----------------------------------------------------------------------------------
 
-## Component Cache 처리
+
+
+## __Component Cache 처리__
 
 > Update는 프레임마다 한 번씩 호출되는 함수로서 항상 최적화에 주의를 기울여야 한다.
 
@@ -122,13 +142,19 @@ icon: icon-html
 
 
 
-## 키워드
+
+
+## __키워드__
+
+
 
 ### 접근 지시자 public
 
  - 기본적으로 다른 클래스에서 접근할 수 있게 해주는 접근 지시자.
 
 - 유니티에서는 변수를 public으로 선언할 경우, Inspector View에 해당 변수가 노출되서, 변수의 값을 직접 수정할 수 있다.
+
+
 
 ### 접근 지시자 private
 
@@ -141,6 +167,8 @@ icon: icon-html
 - Inspector View의 Default Mode는 Normal Mode.
 
 - 또는 [SerializeField] 키워드를 해당 변수 private 앞에 선언할 경우, private 속성은 유지한 채, Inspector View에 해당 변수를 노출시킬 수 있다.
+
+
 
 ### this
 
