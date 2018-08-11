@@ -61,11 +61,10 @@ icon: icon-html
 
 
 
-![이해를 돕기 위해 Rigidbody Component 이미지를 첨부](/static/assets/img/blog/rigidbody.png)
+![이해를 돕기 위해 Rigidbody Component 이미지를 첨부](/static/assets/img/blog/Unity/rigidbody.png)
 
 
 
 
 
 참고 : https://docs.unity3d.com/kr/530/ScriptReference/Rigidbody.html
-
