@@ -70,7 +70,7 @@
         toggleSearch(true);
       });
 
-      $.getJSON("{{ "/search/cb-search.json" | prepend: site.baseurl }}")
+      $.getJSON("{{ "/search/cb-search.json + "  | prepend: site.baseurl }}")
         .done(function (data) {
           if (data.code == 0) {
             $("#search-content").typeahead({

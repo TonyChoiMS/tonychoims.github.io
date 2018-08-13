@@ -6,7 +6,7 @@
 title: TonyChoi
 description: Tony's blog, use Jekyll and github pages.
 keywords: tony, tonychoi, unity, unreal, game, game programming, programming
-baseurl:  /blog # if you have suburl as homepage like '/homepage', please change it to '/homepage' and your repo's name should be 'homepage'
+baseurl:  /index.html # if you have suburl as homepage like '/homepage', please change it to '/homepage' and your repo's name should be 'homepage'
 url: http://tonychoims.github.io/  # url should be 'http://<github_username>.github.io/homepage' as before
 # url: http://127.0.0.1:4000
 img_path: /static/assets/img/  # url should be '/homepage/static/assets/img/blog' as before
@@ -30,7 +30,7 @@ author:  # change following line to your infomation.
   skill_icon2:
     - name: fa-linux
     - name: icon-apache
-  desc: Introduce myself will be here.  # Describe yourself.
+  desc: TonyChoiMS's Game Programming Blog! Thank you for invite.  # Describe yourself.
 
 # comment
 disqus:  # if you wanna comment feature, go to https://disqus.com/ to get your configuration; if not, comment following two lines.
