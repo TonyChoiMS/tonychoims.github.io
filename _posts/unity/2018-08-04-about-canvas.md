@@ -38,36 +38,33 @@ icon: icon-html
 <br />
 ## Anchors Min & Max
  - 앵커 값의 범위를 나타내며, % float 형식의 값이 들어가며, %로 표현된다.
- <br />
-## Pivot
+ - Pivot
 <br />
 ## Anchor Preset
  - 각 UI 항목의 정렬과 크기를 미리 정의해놓은 집합.
  - UI 항목의 Inspector View의 Rect Transform의 가장 왼쪽에 있는 것.
  - UGUI의 기본이 되는 개념
- - 앵커 프리셋은 각각 일반 마우스를 클릭했을 때와 Alt 키와 Shift키의 조합에 따라 다른 조합을 볼 수 있다.
-[Alt + Click]
-[Shift + Click]
-[Alt + Shift + Click]
-<br />
+ - 앵커 프리셋은 각각 일반 마우스를 클릭했을 때와 Alt 키와 Shift키의 조합에 따라 다른 조합을 볼 수 있다. [Alt + Click] [Shift + Click] [Alt + Shift + Click]
+<br />  
 ## anchoredPosition
  - Rect Transform 속성 맨 위에 있는 Pos X, Pos Y, Pos Z는 해당 UI 항목의 ‘앵커 포인트를 기준’으로 상대적으로 얼마만큼 떨어져 있는지를 나타내는 anchoredPosition이다.
- <br />
+<br />
 ## Canvas Component
- - UI 항목을 화면에 배치하고 렌더링하는 역할.
- - Render Mode 옵션에 따라 UI 항목의 화면 배치 방식을 결정할 수 있다.
-1. Screen Space - Overlay
+1. UI 항목을 화면에 배치하고 렌더링하는 역할.
+2. Render Mode 옵션에 따라 UI 항목의 화면 배치 방식을 결정할 수 있다.
+3. Screen Space - Overlay
  - 기본 설정값으로 UI 항목은 씬의 가장 상위 계층에서 표현되며, 화면의 해상도에 맞춰 자동으로 스케일이 조절된다.
-2. Screen Space - Camera
+4. Screen Space - Camera
  - 씬의 가장 상위에 UI 항목이 표시되는 것은 Overlay방식과 같지만, UI 항목을 렌더링하는 별도의 카메라를 설정할 수 있다.
  - 씬을 비추는 Main Camera와 UI를 위한 카메라로 이원화할 수 있다.
  - Render Camera 속성에 원하는 카메라를 연결하면 된다.
  - UI Camera의 Projection 속성을 Perspective로 설정
  - UI Camera를 따로 설정할 경우, Main Camera와 충돌이 없도록 반드시 Clear Flag, Culling Mask, Depth속성을 적절히 설정해야 한다.
-3. World Space
+5. World Space
  - 씬 내에 있는 다른 게임오브젝트에 직접 UI 항목을 추가한다.
  - 대표적으로 HUD(Head Up Display)를 구현할 때 사용.
  - 특정 게임오브젝트에 Canvas 객체를 추가하고 Render Mode를 World Space로 설정하면 해당 Canvas는 더는 Rect Transform의 영향을 받지 않으며, 해당 게임오브젝트의 위치에 영향을 받는다.
+<br />
 ![Canvas Component Render Mode 변경에 따른 내용](/static/assets/img/blog/Unity/canvas1.png)
 ![Canvas Component Render Mode 변경에 따른 내용](/static/assets/img/blog/Unity/canvas2.png)
 ![Canvas Component Render Mode 변경에 따른 내용](/static/assets/img/blog/Unity/canvas3.png)
