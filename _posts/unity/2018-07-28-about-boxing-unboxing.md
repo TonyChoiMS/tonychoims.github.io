@@ -37,4 +37,3 @@ icon: icon-html
 ![UnBoxing의 예시](/static/assets/img/blog/Unity/unboxing.png)
 <br />
 참고 : https://docs.microsoft.com/ko-kr/dotnet/csharp/programming-guide/types/boxing-and-unboxing
-출처: http://tony-programming.tistory.com/entry/Collections-Boxing-UnBoxing-정리?category=797331 [Tony Programming]
