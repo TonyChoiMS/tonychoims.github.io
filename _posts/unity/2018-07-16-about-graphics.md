@@ -11,7 +11,7 @@ icon: icon-html
 
 * 최종 수정일 : 2018-08-10
 
-# > **[Graphics]**
+# **[Graphics]**
 
 
 ## __Texture__  
@@ -134,9 +134,9 @@ icon: icon-html
   
 
   
-# > **[Light]**
+#  **[Light]**
   
-## __Directional Light __
+## __Directional Light__
   
  - 해당 라이트의 위치와 관계없이, 전체 화면에 균일한 빛을 비춘다. 
   
