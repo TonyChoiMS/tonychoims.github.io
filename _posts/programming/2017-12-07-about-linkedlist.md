@@ -5,6 +5,7 @@ date: 2017-12-07
 desc: "C++ 기반의 Linked List에 대한 정리 및 소스 코드"
 keywords: "C++, LinkedList, Double LinkedList"
 categories: [Programming]
+comments: true
 tags: [C++, LinkedList, Double LinkedList]
 icon: icon-html
 ---

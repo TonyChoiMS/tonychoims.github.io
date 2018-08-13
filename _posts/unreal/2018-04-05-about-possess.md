@@ -5,6 +5,7 @@ date:   2018-04-05
 desc: "Unreal Engine의 Possess에 대한 정리"
 keywords: "Possess,Unreal,UnrealEngine,GameProgramming"
 categories: [Unreal]
+comments: true
 tags: [Possess,Unreal,UnrealEngine]
 icon: icon-html
 ---

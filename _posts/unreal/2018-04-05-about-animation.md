@@ -5,6 +5,7 @@ date:   2018-04-05
 desc: "Unreal Engine에서 사용하고 있는 Animation"
 keywords: "Unreal animation, actor animation, UnrealEngine, GameProgramming"
 categories: [Unreal]
+comments: true
 tags: [Animation,Unreal,UnrealEngine]
 icon: icon-html
 ---

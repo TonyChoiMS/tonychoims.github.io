@@ -5,6 +5,7 @@ date: 2017-12-07
 desc: "MVP Pattern에 대해 잘 이해하기 위해 의존성에 대해서 알아보자."
 keywords: "Dependency, mvp pattern"
 categories: [Programming]
+comments: true
 tags: [Dependency, mvp pattern]
 icon: icon-html
 ---

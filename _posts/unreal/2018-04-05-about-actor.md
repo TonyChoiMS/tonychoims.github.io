@@ -5,6 +5,7 @@ date:   2018-04-05
 desc: "Unreal Engine에서 사용하고 있는 Actor Class에 대한 생각과 고민에 대한 블로깅"
 keywords: "Actor,Unreal,UnrealEngine,GameProgramming"
 categories: [Unreal]
+comments: true
 tags: [Actor,Unreal,UnrealEngine]
 icon: icon-html
 ---

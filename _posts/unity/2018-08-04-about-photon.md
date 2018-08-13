@@ -5,6 +5,7 @@ date:   2018-08-04
 desc: "Unity3d의 UI를 담당하는 Canvas에 대해서 알아보자."
 keywords: "Unity, Canvas, EventSystem, Rect Transform, Anchor, Component"
 categories: [Unity]
+comments: true
 tags: [Unity, Canvas, EventSystem, Rect Transform, Anchor, Component]
 icon: icon-html
 ---

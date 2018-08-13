@@ -5,6 +5,7 @@ date:   2018-07-17
 desc: "Unity3D GameObject와 그에 따른 API에 대해서 알아보자."
 keywords: "Unity, Awake, component, componentcache, gameobject, gamobject private, public, keyword, 기본함수"
 categories: [Unity]
+comments: true
 tags: [Unity, Awake, component, componentcache, gameobject, gamobject private, public, keyword, 기본함수]
 icon: icon-html
 ---

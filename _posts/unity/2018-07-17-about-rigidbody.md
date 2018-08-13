@@ -5,6 +5,7 @@ date:   2018-07-17
 desc: "Unitiy3D RigidBody Component에 대한 정의 및 정리."
 keywords: "Unity, rigidbody, 리지드바디"
 categories: [Unity]
+comments: true
 tags: [Unity, rigidbody, 리지드바디]
 icon: icon-html
 ---

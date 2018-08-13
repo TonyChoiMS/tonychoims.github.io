@@ -5,6 +5,7 @@ date:   2018-07-23
 desc: "Unity3D에서 회전을 담당하는 Quaternion에 대해서 알아보자."
 keywords: "Unity, Quaternion"
 categories: [Unity]
+comments: true
 tags: [Unity, Quaternion]
 icon: icon-html
 ---

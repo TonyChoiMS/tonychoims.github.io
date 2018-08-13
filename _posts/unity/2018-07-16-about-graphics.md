@@ -5,6 +5,7 @@ date:   2018-07-16
 desc: "Unreal Engine에서 사용하고 있는 Actor Class에 대한 생각과 고민에 대한 블로깅"
 keywords: "Graphics, Light, Material, Mesh, Shader, Texture, Unity, unity3d, gameprogramming"
 categories: [Unity]
+comments: true
 tags: [Graphics, Light, Material, Mesh, Shader, Texture, Unity, unity3d]
 icon: icon-html
 ---

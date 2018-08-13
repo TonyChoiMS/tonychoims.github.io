@@ -5,6 +5,7 @@ date:   2018-07-18
 desc: "Unity3D Collider Component의 종류와 기능, API에 대해서 알아보자."
 keywords: "Unity, component, collider, box collider, capsule collider, sphere collider, mesh collider, collision"
 categories: [Unity]
+comments: true
 tags: [Unity, component, collider, box collider, capsule collider, sphere collider, mesh collider, collision]
 icon: icon-html
 ---

@@ -5,6 +5,7 @@ date: 2017-12-07
 desc: "Design Pattern 중, SingleTon에 대해서 알아보자."
 keywords: "OOP DesignePattern, Singleton"
 categories: [Programming]
+comments: true
 tags: [OOP DesignePattern, Singleton]
 icon: icon-html
 ---

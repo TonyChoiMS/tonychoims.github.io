@@ -5,6 +5,7 @@ date:   2018-07-28
 desc: "C#에서 사용되는 Generic Collection과 Boxing, Unboxing에 대한 정리"
 keywords: "Unity, Generic Collection, Boxing, unboxing, 일반화 콜렉션, C#"
 categories: [Unity]
+comments: true
 tags: [Unity, Generic Collection, Boxing, unboxing, 일반화 콜렉션, C#]
 icon: icon-html
 ---

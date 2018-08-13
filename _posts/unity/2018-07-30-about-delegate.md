@@ -5,6 +5,7 @@ date:   2018-07-30
 desc: "C#에서 사용되는 Delegate와 Event, Action에 대한 정리"
 keywords: "Unity, Delegate, Event, Action, Func, C#"
 categories: [Unity]
+comments: true
 tags: [Unity, Delegate, Event, Action, Func, C#]
 icon: icon-html
 ---

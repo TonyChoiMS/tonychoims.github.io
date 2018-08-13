@@ -5,6 +5,7 @@ date:   2018-04-05
 desc: "Unreal Engine에서 사용하고 있는 Character Class에 대한 정리"
 keywords: "Character,Unreal,UnrealEngine,GameProgramming"
 categories: [Unreal]
+comments: true
 tags: [Character,Unreal,UnrealEngine]
 icon: icon-html
 ---
