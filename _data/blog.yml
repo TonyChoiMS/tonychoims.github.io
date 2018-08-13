@@ -14,13 +14,6 @@
 
 - name: Programming
   href: /Programming/
-
-- name: Design Pattern
-  href: /DesignPattern/
-
+  
 - name: Life
   href: /Life/
-
-# Don't display donation page: change donation to off at file '_config.yml'
-- name: Donate
-  href: /donate/

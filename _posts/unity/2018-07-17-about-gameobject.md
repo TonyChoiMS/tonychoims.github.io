@@ -9,7 +9,7 @@ tags: [Unity, Awake, component, componentcache, gameobject, gamobject private, p
 icon: icon-html
 ---
 
-* 최종 수정일 : 2018-08-13
+최종 수정일 : 2018-08-13
 <br />
 # > **[GameObject]**
 <br /><br />

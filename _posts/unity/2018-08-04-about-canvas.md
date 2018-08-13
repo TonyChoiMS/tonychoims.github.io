@@ -9,7 +9,7 @@ tags: [Unity, Canvas, EventSystem, Rect Transform, Anchor, Component]
 icon: icon-html
 ---
 
-* 최종 수정일 : 2018-08-13
+최종 수정일 : 2018-08-13
 <br />
 <br />
 # __GameObject Canvas__

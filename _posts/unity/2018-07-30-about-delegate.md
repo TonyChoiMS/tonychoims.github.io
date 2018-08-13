@@ -9,7 +9,7 @@ tags: [Unity, Delegate, Event, Action, Func, C#]
 icon: icon-html
 ---
 
-* 최종수정일 : 2018-08-13
+최종수정일 : 2018-08-13
 <br />
 # Delegate
 <br />

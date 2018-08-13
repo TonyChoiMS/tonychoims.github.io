@@ -9,7 +9,7 @@ tags: [Unity, component, collider, box collider, capsule collider, sphere collid
 icon: icon-html
 ---
 <br />
-* 최종 수정일 : 2018-08-13
+최종 수정일 : 2018-08-13
 <br />
 # __[Collider Component]__
 <br />

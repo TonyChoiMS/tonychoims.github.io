@@ -9,7 +9,7 @@ tags: [Unity, Quaternion]
 icon: icon-html
 ---
 
-* 최종 수정일 : 2018-08-13
+최종 수정일 : 2018-08-13
 <br />
 # *__Quaternion__*
 <br />

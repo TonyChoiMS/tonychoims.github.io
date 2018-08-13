@@ -9,7 +9,7 @@ tags: [Unity, rigidbody, 리지드바디]
 icon: icon-html
 ---
 <br />
-* 최종 수정일 : 2018-08-13
+최종 수정일 : 2018-08-13
 <br />
 # **[Rigidbody Component]**
 <br />

@@ -9,7 +9,7 @@ tags: [Graphics, Light, Material, Mesh, Shader, Texture, Unity, unity3d]
 icon: icon-html
 ---
 
-* 최종 수정일 : 2018-08-13
+최종 수정일 : 2018-08-13
 <br />
 # **[Graphics]**
 <br />

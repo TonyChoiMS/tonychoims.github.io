@@ -9,7 +9,7 @@ tags: [Unity, Generic Collection, Boxing, unboxing, 일반화 콜렉션, C#]
 icon: icon-html
 ---
 
-* 최종 수정일 : 2018-08-13
+최종 수정일 : 2018-08-13
 <br />
 # __일반화 컬렉션__
 <br />
