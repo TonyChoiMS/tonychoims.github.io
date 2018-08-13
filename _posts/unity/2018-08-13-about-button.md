@@ -36,7 +36,7 @@ icon: icon-html
 4. OnClick : 버튼을 클릭했을 때 수행할 함수를 연결하는 이벤트 속성이다.
 
 
-![이해를 돕기 위해 Button Component 이미지를 첨부](/static/assets/img/blog/unity/buttoncomponent.png)
+![이해를 돕기 위해 Button Component 이미지를 첨부](/static/assets/img/blog/Unity/buttoncomponent.png)
 
 
 

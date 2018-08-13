@@ -29,11 +29,11 @@ icon: icon-html
 10. Color : Text 색상
 11. Material : Text에 별도의 머티리얼을 적용할 수 있다.
 <br />
-## * Text Effect *
+## *Text Effect*
  - Shadow 컴포넌트를 새로 추가함으로써, Text에 그림자 효과를 추가할 수도 있다.
 
 
-![이해를 돕기 위해 Text Component 이미지를 첨부](/static/assets/img/blog/unity/textcomponent.png)
+![이해를 돕기 위해 Text Component 이미지를 첨부](/static/assets/img/blog/Unity/textcomponent.png)
 
 
 

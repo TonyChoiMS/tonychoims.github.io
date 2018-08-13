@@ -44,7 +44,7 @@ icon: icon-html
  * Filled Image Type은 게임 개발 시 생명 게이지 또는 스킬 버튼의 쿨링타임을 표현할 때 유용하다.
 
 
-![이해를 돕기 위해 Image Component 이미지를 첨부](/static/assets/img/blog/unity/imagecomponent.png)
+![이해를 돕기 위해 Image Component 이미지를 첨부](/static/assets/img/blog/Unity/ImageComponent.png)
 
 # **[RawImage Component]**
  - 배경 이미지와 같이 큰 이미지에 사용되는 컴포넌트.
