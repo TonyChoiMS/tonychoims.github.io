@@ -21,7 +21,7 @@ icon: icon-html
   
   
 ### Texture 기능으로 Mesh, Particle 및 Interface에 이미지를 매핑.
-    
+<br />
 	- 매핑 - 이미지 또는 동영상을 오브젝트에 겹치거나 둘러싸는 것.
   
 	- PSD(포토샵), PNG, JPEG, TIFF, GIF, BMP, TGA 등 다양한 이미지 파일 포맷  지원
@@ -33,8 +33,7 @@ icon: icon-html
 	- 텍스쳐의 크기가 가로세로 2^n 형태일 때 압축 지원 속도가 가장 빠르다.
   
     - 모바일 플랫폼을 사용할 경우 이 형태를 사용하는게 가장 유리하다.
-  
-  
+  <br />
 ### Texture Type 
   
  - Texture : 모든 텍스처에서 사용되는 가장 일반적인 설정.
@@ -178,7 +177,7 @@ icon: icon-html
   
  - 실시간 그림자 미지원
     
- ## __Shadow Type__
+## __Shadow Type__
   
  - No Shadows : 기본 설정값으로, 실시간 그림자를 적용하지 않는다.
   
@@ -187,7 +186,7 @@ icon: icon-html
  - Soft Shadows : 부드러운 실시간 그림자를 표현하지만 가장 많은 부하를 준다.
   
   
-# > **[LOD]**
+# **[LOD]**
   
 ## __Level Of Detail__
   
