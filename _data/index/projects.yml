@@ -1,12 +1,12 @@
 # projects section data
 # If you don't have language feature(language.yml is empty), ignore "i18n" items
 # Suggest projects' img be located at '/static/assets/img/landing', and edit following img items.
-- name: UnityPractice
-  i18n: UnityPractice
+- name: SpaceShooter
+  i18n: SpaceShooter
   gh_user: TonyChoiMS
-  repo: UnityPractice
+  repo: SpaceShooter
   img: /static/assets/img/landing/unity.png
-  desc: This project is Unity Tutorial Project. Sample.
+  desc: This project is Unity FPS Project.
 
 - name: UnrealPractice
   i18n: UnrealPractice
