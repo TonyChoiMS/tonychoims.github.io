@@ -1,16 +1,48 @@
 ---
 layout: post
-title:  "Unreal Engine Animation에 대해서.."
+title:  "Unreal Engine Animation"
 date:   2018-04-05
 desc: "Unreal Engine에서 사용하고 있는 Animation"
-keywords: "Unreal animation, actor animation, UnrealEngine, GameProgramming"
+keywords: "Unreal animation, actor animation, UnrealEngine, GameProgramming, Animation Blueprint, AnimInstance"
 categories: [Unreal]
 comments: true
 tags: [Animation,Unreal,UnrealEngine]
 icon: icon-html
 ---
 
+#### 최종 수정 (2020-05-01)
+
 # 애니메이션
+
+## 애니메이션 블루프린트
+ - 캐릭터가 다양한 상황에 적절한 애니메이션을 체계적으로 재생하도록 도와주는 애니메이션 시스템 제작 도구
+ - 애님 그래프(Anim Graph)와 애님 인스턴스(Anim Instance)로 구성된다.
+  
+  
+### 애님 인스턴스
+ - 시각적 도구를 사용해 애니메이션 시스템을 제작하도록 설계
+ - 스켈레탈 메시를 소유하는 폰의 정보를 받아 애님 그래프가 참조할 데이터를 제공. 
+ - 블루프린트와 C++로 제작 가능
+ - 틱마다 호출되는 NativeAnimationUpdate 가상함수 제공
+
+
+### 애님 그래프
+ - 애니메이션 블루프린트의 기반을 이룸.
+ - 애님 인스턴스의 변수 값에 따라 변화하는 애니메이션 시스템을 설계하는 공간.
+ - 블루프린트로만 제작 가능
+ - 스테이트 머신(State Machine 제공)
+  
+ * 스테이트 머신(State Machine)
+  - 유한 상태 기계(FSM)
+  - 기계가 반복 수행해야 하는 동작을 설계한 단위인 스테이트(State)를 정의하는 것으로 시작.
+  - 스테이트 머신은 여러개의 스테이트를 설계할 수 있는데, 그 중 하나의 스테이트만 지정해 해당 스테이트에서 지정한 동작을 반복수행한다.
+  - 애니메이션 시스템에서는 캐릭터가 반복해서 재생해야 할 애니메이션 동작을 의미함.
+  - 하나의 스테이트에서 다른 스테이트로 이동하기 위한 조건이 필요한데, 이를 트랜지션(Transition)이라고 한다.
+  - 시작지점인 Entry와 연결된 스테이트를 특별히 '시작 스테이트'라고 한다.
+  
+    
+## 애니메이션 리타겟
+ - 언리얼에서 제공하는 기능으로, 인간형 캐릭터의 경우 스켈레톤의 구성이 달라도 애니메이션을 교환할 수 있도록 제공하는 기능
 
 ## 애니메이션 몽타주
  - Asset의 일종
