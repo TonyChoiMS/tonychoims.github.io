@@ -3,10 +3,10 @@ layout: post
 title:  "LeetCode PalindromeLinkedList 문제"
 date: 2021-04-20
 desc: "문제 풀이"
-keywords: "Algrorithm", "Palindrome", "LinkedList"
-categories: [Programming]
+keywords: "Algrorithm, Palindrome, LinkedList"
+categories: [Algorithm]
 comments: true
-tags: [Algrorithm, LinkedList, Palindrome]
+tags: [C++, Algrorithm, LinkedList, Palindrome]
 icon: icon-html
 ---
 
