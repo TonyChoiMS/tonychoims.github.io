@@ -17,12 +17,12 @@ icon: icon-html
 ### 주어진 문제에서 제한된 내용은
  - 노드는 1부터 10^5까지의 개수를 가질 수 있습니다.
  - 노드의 value는 0 <= value <= 9 까지 가질 수 있습니다.
-<br/>
+<br/>  
 ### 주어진 문제를 풀 때 중점적으로 봐야할 점.
  - 시간복잡도 O(n)과 공간복잡도 O(1)으로 풀 수 있는지 확인해봅니다.
-<br/>
+<br/>  
 ### 문제에서 주어진 ListNode
-~~~Cpp
+~~~cpp
 struct ListNode 
 {
     int val;
@@ -42,7 +42,7 @@ struct ListNode
  - Runtime: 240 ms
  - Memory Usage : 128.2 MB
 <br/>
-~~~Cpp
+~~~cpp
 std::vector<int> vec;
 
 bool Solution(ListNode* head)
@@ -74,7 +74,7 @@ bool Solution(ListNode* head)
  - Runtime: 268 ms
  - Memory Usage : 146.2 MB
 <br/>
- ~~~Cpp
+~~~cpp
 #include <funtional>
 
 bool Solution(ListNode* head)
@@ -92,13 +92,13 @@ bool Solution(ListNode* head)
 
 		return ip_rec(head);
 }
- ~~~
+~~~
 <br/>
 ### LeetCode에서 발견한 풀이법
  - 포인터를 두개 사용하여, 포인터를 이동시키며 해당 값이 팰린드롬 인지 확인하는 방법입니다.
  - 재귀호출을 이용하여 노드를 뒤집는 방법까지 사용했습니다.
  <br/>
- ~~~Cpp
+~~~cpp
 
  ListNode* reverse(ListNode* head) 
  {
