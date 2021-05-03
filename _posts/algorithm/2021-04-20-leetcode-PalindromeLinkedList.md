@@ -21,8 +21,8 @@ icon: icon-html
 ### 주어진 문제를 풀 때 중점적으로 봐야할 점.
  - 시간복잡도 O(n)과 공간복잡도 O(1)으로 풀 수 있는지 확인해봅니다.
 <br/>  
-### 문제에서 주어진 ListNode
-~~~cpp
+### 문제에서 주어진 ListNode  
+```cpp
 struct ListNode 
 {
     int val;
@@ -32,7 +32,7 @@ struct ListNode
     ListNode(int x, ListNode *next) : val(x), next(next) {}
     
 };
-~~~
+```
 <br/>
 ### BrouteForce 방식
  - Palindrome은 뒤집어도 똑같은지 확인하는 알고리즘 이므로, 배열의 절반을 돌면서, 
@@ -42,7 +42,8 @@ struct ListNode
  - Runtime: 240 ms
  - Memory Usage : 128.2 MB
 <br/>
-~~~cpp
+  
+```cpp
 std::vector<int> vec;
 
 bool Solution(ListNode* head)
@@ -66,7 +67,7 @@ bool Solution(ListNode* head)
 
     return true;
 }
-~~~
+```
 <br/>
 ### 재귀호출을 이용한 방식
  - StackOverflow에서 소개한 방법 중 하나인데, 런타임 시간이 위에 했던 방식보다 오래걸림...
@@ -74,7 +75,7 @@ bool Solution(ListNode* head)
  - Runtime: 268 ms
  - Memory Usage : 146.2 MB
 <br/>
-~~~cpp
+```cpp
 #include <funtional>
 
 bool Solution(ListNode* head)
@@ -92,13 +93,13 @@ bool Solution(ListNode* head)
 
 		return ip_rec(head);
 }
-~~~
+```
 <br/>
 ### LeetCode에서 발견한 풀이법
  - 포인터를 두개 사용하여, 포인터를 이동시키며 해당 값이 팰린드롬 인지 확인하는 방법입니다.
  - 재귀호출을 이용하여 노드를 뒤집는 방법까지 사용했습니다.
  <br/>
-~~~cpp
+```cpp
 
  ListNode* reverse(ListNode* head) 
  {
@@ -143,4 +144,4 @@ bool Solution(ListNode* head)
 
     return true;
 }
-~~~
+```
