@@ -12,7 +12,7 @@ icon: icon-html
 
 # LeetCode LinkedList Cycle
 
-## LeetCode Top Interview Questions의 LinkedList 탭에 있는 PalindromeLinkedList를 풀어보았습니다.
+## LeetCode Top Interview Questions의 LinkedList 탭에 있는 LinkedList Cycle 풀어보았습니다.
   
 ### 주어진 문제에서 제한된 내용은
  - LinkedList의 Head가 주어졌을 때 해당 LinkedList가 Cycle을 가지는지 확인해주세요.
