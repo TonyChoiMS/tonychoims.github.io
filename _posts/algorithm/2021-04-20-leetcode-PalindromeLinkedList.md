@@ -13,14 +13,14 @@ icon: icon-html
 # PalindromeLinkedList
 
 ## LeetCode Top Interview Questions의 LinkedList 탭에 있는 PalindromeLinkedList를 풀어보았습니다.
-<br/>
+  
 ### 주어진 문제에서 제한된 내용은
  - 노드는 1부터 10^5까지의 개수를 가질 수 있습니다.
  - 노드의 value는 0 <= value <= 9 까지 가질 수 있습니다.
-<br/>  
+   
 ### 주어진 문제를 풀 때 중점적으로 봐야할 점.
  - 시간복잡도 O(n)과 공간복잡도 O(1)으로 풀 수 있는지 확인해봅니다.
-<br/>  
+  
 ### 문제에서 주어진 ListNode  
 ```cpp
 struct ListNode 
@@ -33,7 +33,7 @@ struct ListNode
     
 };
 ```
-<br/>
+  
 ### BrouteForce 방식
  - Palindrome은 뒤집어도 똑같은지 확인하는 알고리즘 이므로, 배열의 절반을 돌면서, 
  - 앞의 값과 뒤의 값이 같은지 확인하는 방법을 사용합니다.
@@ -41,7 +41,6 @@ struct ListNode
  - 심지어 LeetCode에 입력해본 결과 런타임 시간도 다른 사람에 비해 엄청 높음...
  - Runtime: 240 ms
  - Memory Usage : 128.2 MB
-<br/>
   
 ```cpp
 std::vector<int> vec;
@@ -68,13 +67,13 @@ bool Solution(ListNode* head)
     return true;
 }
 ```
-<br/>
+  
 ### 재귀호출을 이용한 방식
  - StackOverflow에서 소개한 방법 중 하나인데, 런타임 시간이 위에 했던 방식보다 오래걸림...
  - 재귀호출을 이용한 방식이라 한번 적용해봤습니다.
  - Runtime: 268 ms
  - Memory Usage : 146.2 MB
-<br/>
+  
 ```cpp
 #include <funtional>
 
@@ -94,11 +93,11 @@ bool Solution(ListNode* head)
 		return ip_rec(head);
 }
 ```
-<br/>
+  
 ### LeetCode에서 발견한 풀이법
  - 포인터를 두개 사용하여, 포인터를 이동시키며 해당 값이 팰린드롬 인지 확인하는 방법입니다.
  - 재귀호출을 이용하여 노드를 뒤집는 방법까지 사용했습니다.
- <br/>
+  
 ```cpp
 
  ListNode* reverse(ListNode* head) 
