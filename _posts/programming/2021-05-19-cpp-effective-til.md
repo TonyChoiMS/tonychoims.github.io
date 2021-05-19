@@ -2,7 +2,7 @@
 layout: post
 title:  "Effective C++ Today I Learn (Day1)"
 date: 2021-05-19
-desc: "Vector 정리"
+desc: "Day1 복습"
 keywords: "Direct3d, vector"
 categories: [Programming]
 comments: true
