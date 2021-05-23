@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); "><header class="masthead">
+  
+  <div class="masthead-title">
+    <a href="/" title="Home"></a>
+  </div>
+  <div class="masthead-tagline">
+    <small></small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://vszhub@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://twitter.com/vszhub">
+            <i class="fab fa-twitter" title="Twitter"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/vszhub/not-pure-poole">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">Unity3D Quaternion Component</h1>
+  <div class="post-meta"><time datetime="2018-07-23T00:00:00+09:00" itemprop="datePublished">23 Jul 2018</time></div>
+
+  <p>최종 수정일 : 2018-08-13
+<br /></p>
+<h1 id="quaternion"><em><strong>Quaternion</strong></em></h1>
+<p><br /></p>
+<h2 id="-quaternion-이란--"><em><strong>[ Quaternion 이란 ? ]</strong></em></h2>
+<p><br /></p>
+<ul>
+  <li>유니티에서 사용되는 각도의 단위</li>
+  <li>유니티에서 회전을 표현하기 위해 사용되는 구조체(Struct)</li>
+  <li>수학적인 용어로 복소수 4차원 벡터(Four-Deminsional Complex Number)
+<br />
+    <ol>
+      <li>각도를 4개의 원소로 표현한 것. ( = 사원수)
+<br /></li>
+      <li>x, y, z, w로 표현되어 있음.
+<br /></li>
+    </ol>
+  </li>
+  <li>우리가 알고 있는 1도, 45도, 90도 등의 표현은 오일러 각(Euler Angle)이라고 한다.
+<br />
+<br />
+<br />
+    <h2 id="-quaternion이-나오게-된-이유-"><em><strong>[ Quaternion이 나오게 된 이유 ]</strong></em></h2>
+    <p><br /></p>
+  </li>
+  <li>오일러 각은 3차원 공간의 절대 좌표를 기준으로 물체가 얼마나 회전했는지 측정하는 방식이다.</li>
+  <li>오일러 각은 회전 시킬 때, X, Y, Z 축을 차례대로 회전 시키는 방식을 사용하고 있다.</li>
+  <li>이 때 X, Y, Z 축 중 2개의 축이 겹쳐 졌을 때 어느 축으로도 회전되지 않고 잠기는 현상이 발생하는데, 이를 짐벌락(Gimbal Lock)이라고 한다.</li>
+  <li>유니티에서는 이 짐벌락 현상을 해결하기 위해 Quaternion이 제시되어, 세 축을 차례대로 회전시키는 것이 아닌, 세 축을 동시에 회전시키는 방식을 사용하고 있다.</li>
+  <li>이렇게 때문에 유니티 게임오브젝트를 회전시킬 때 사용하는 Rotate 함수는 유니티 내부에서 Quaternion으로 자동 변형되며, rotation은 Quaternion의 타입의 속성으로 Quaternion.Euler(x, y, z) 함수를 이용해 오일러 각을 Quaternion 타입으로 변형해서 대입해야 한다.
+<br />
+<br />
+<br />
+    <h2 id="-참-고-"><em><strong>[ 참 고 ]</strong></em></h2>
+    <p><br />
+Quaternion.identity</p>
+  </li>
+  <li>이것은 Quaternion 타입의 한 속성으로 API 문서에는 “회전 없음” 을 의미한다고 적혀있다.</li>
+  <li>추가로 월드 좌표 축 또는 부모의 축으로 정렬된다고 나와 있다.</li>
+  <li>하지만 이는 “회전 없음” 이라고 보기 보다는, “특정 회전 값 없이 생성하려는 프리팹 또는 3D 모델의 원래 회전각도로 적용한다” 라고 보는 것이 좀 더 정확할 것 같다.</li>
+  <li>API문서를 본다면 또 “쿼터니언은 복잡한 수를 기반으로 하고, 직관적으로 이해하기 쉽지 않습니다. 따라서 거의 접근하지 않거나 개별 쿼터니언 컴포넌트(x,y,z,w)를 수정하지 않습니다.” 라고 적혀있는데, 유니티는 다 배운 이후, Quaternion에 대해 좀 더 깊숙하게 공부해 볼 필요성이 있을 것 같다.</li>
+</ul>
+
+<p>참고 : 유니티 API
+https://docs.unity3d.com/kr/530/ScriptReference/Quaternion.html</p>
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#unity">unity</a></li><li>
+        <a class="post-tag" href="/tags/#quaternion">quaternion</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/programming/2021/05/19/cpp-effective-til.html">
+          Effective C++ Today I Learn (Day1)
+          <small><time datetime="2021-05-19T00:00:00+09:00">19 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/05/09/leetcode-linkedlistcycle.html">
+          LeetCode LinkedList Cycle 문제
+          <small><time datetime="2021-05-09T00:00:00+09:00">09 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/04/20/leetcode-PalindromeLinkedList.html">
+          LeetCode PalindromeLinkedList 문제
+          <small><time datetime="2021-04-20T00:00:00+09:00">20 Apr 2021</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2017&nbsp;-&nbsp;2021 . All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

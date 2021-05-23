@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); "><header class="masthead">
+  
+  <div class="masthead-title">
+    <a href="/" title="Home"></a>
+  </div>
+  <div class="masthead-tagline">
+    <small></small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://vszhub@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://twitter.com/vszhub">
+            <i class="fab fa-twitter" title="Twitter"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/vszhub/not-pure-poole">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">Unreal Engine Actor</h1>
+  <div class="post-meta"><time datetime="2018-04-05T00:00:00+09:00" itemprop="datePublished">5 Apr 2018</time></div>
+
+  <ul>
+  <li>최종 수정일 : 2020-04-26</li>
+</ul>
+
+<h1 id="월드">월드</h1>
+<ul>
+  <li>월드는 언리얼에서 제공하는 한 프로젝트의 구성 공간을 의미하며, 게임에서 흔히 말하는 맵을 표현.</li>
+  <li>월드는 프로젝트당 한개만 존재한다.</li>
+  <li>월드에는 캐릭터, 몬스터, 배경 등 수많은 오브젝트들이 존재하는데, 이것들을 전부 액터라고 한다.</li>
+</ul>
+
+<h2 id="레벨--게임에서의-맵을-표현하는-언리얼엔진의-단위">레벨 : 게임에서의 맵을 표현하는 언리얼엔진의 단위</h2>
+<h2 id="스폰--월드또는-레벨에-액터를-실시간으로-추가하는-행위--월드-상에-액터-클래스를-전달받아서-액터-클래스에-맞는-새로운-오브젝트를-만드는-행위">스폰 : 월드(또는 레벨)에 액터를 실시간으로 추가하는 행위 / 월드 상에 액터 클래스를 전달받아서 액터 클래스에 맞는 새로운 오브젝트를 만드는 행위</h2>
+
+<h1 id="액터--콘텐츠를-구성하는-최소단위의-물체">액터 : 콘텐츠를 구성하는 최소단위의 물체</h1>
+<p>*월드(레벨)를 꾸며주는 모든 컴포넌트 또는 리플리케이션의 단위</p>
+<ul>
+  <li>리플리케이션(Replication) : 네트워크 게임에서 서로 동기화하는 작업</li>
+  <li>그러므로 액터의 직렬화를 통해서 네트워크 데이터 동기화의 기능을 가지고 있다.</li>
+  <li>언리얼 엔진은 모든 단위를 액터로 통제한다.</li>
+  <li>언리얼 엔진을 사용함에 있어 가장 중요한 클래스.</li>
+  <li>모든 액터가 물체 또는 형태를 가지고 있는 것은 아니다.(ex. Player Controller, Game Mode)</li>
+</ul>
+
+<h2 id="기초적인-액터-개념에-대해서-살펴보자">기초적인 액터 개념에 대해서 살펴보자</h2>
+
+<ul>
+  <li>액터 클래스</li>
+  <li>레벨에 배치되거나 스폰 될 수 있는 객체의 기본 클래스.</li>
+  <li>액터 내부에는 액터의 이동 방법, 렌더링 방법 등을 제어하는 데 사용할 수 있는 ActorComponents Collections가 포함되어 있다.</li>
+  <li>컨텐츠 브라우저에서 우리가 원하는 커스텀 액터 클래스를 만들 수 있다.</li>
+  <li>개별적인 에셋으로 존재하거나 엔진에 내장되어 있다.</li>
+  <li>플레이 중 네트워크에서 속성 및 기능 함수 호출을 복제하는 기능도 포함되어 있다.</li>
+  <li>액터는 기능을 담당하는 컴포넌트들을 담아서 사용하는 그릇이라고 볼 수 있다.</li>
+  <li>레벨 안에서의 최소 커뮤니케이션 단위는 액터 안에서의 상호작용으로 일어난다.</li>
+  <li>클래스이기 때문에 함수와 변수를 소유할 수 있다.</li>
+  <li>구체적인 개별 에셋들을 만들 때는 액터에 그에 맞는 컴포넌트를 추가한 후 에셋을 추가해야한다.</li>
+</ul>
+
+<h3 id="액터의-구성-요소">액터의 구성 요소</h3>
+<ul>
+  <li>이름 : 작업을 위해 액터에 부여된 명칭. 여러 액터가 같은 이름을 가질 수 있다.</li>
+  <li>유형 : 게임플레이에서 수행할 액터의 역할을 의미한다. 프로그래밍 관점에서는 액터의 클래스 이름이다.</li>
+  <li>트랜스폼 : 액터는 반드시 월드에 존재해야 하므로, 액터에는 항상 트랜스폼이 부여된다.</li>
+  <li>프로퍼티 : 액터에 설정된 속성값. 디테일 윈도우에서 편집해 같은 유형을 가진 액터가 서로 다른 일을 하게 만들 수 있다.</li>
+  <li>
+    <p>게임 로직 : 액터에 특정 상황이 발생할 때 이에 대응할 구체적인 행동을 명령하는 로직. 언리얼 엔진은 블루프린트와 C++라는 두 가지 언어를 지원한다.</p>
+  </li>
+  <li>액터 오브젝트</li>
+  <li>액터 클래스를 월드에 생성한 인스턴스를 지칭함.</li>
+  <li>액터 오브젝트는 월드 아웃라이너 탭에서 생성됬는지 확인할 수 있다.</li>
+  <li>
+    <p>액터 오브젝트는 Level Asset에 나열되서 저장된다.</p>
+  </li>
+  <li>스폰 Spawn</li>
+  <li>액터를 월드(레벨)에 생성하는 행위</li>
+  <li>
+    <p>액터 클래스를 월드에 인스턴스를 생성하는 것을 의미함.</p>
+  </li>
+  <li>블루프린트 클래스</li>
+  <li>부모 클래스 : 선택한 클래스를 상속받는 액터 클래스를 만든다.</li>
+  <li>
+    <p>부모 클래스의 최상위 클래스는 액터 클래스이다.</p>
+  </li>
+  <li>Pawn</li>
+  <li>액터를 상속 받아서 만든 클래스</li>
+  <li>플레이어나 AI가 제어할 수 있는 모든 액터의 베이스 클래스.</li>
+  <li>월드 내 플레이어나 AI 개체에 대한 물리적 표현.</li>
+  <li>플레이어의 시각적인 모습 뿐만 아니라, Collision이나 기타 물리적 반응과 같은 측면에서 월드와의 상호작용 방식을 규정.</li>
+  <li>게임 내 플레이어의 물리적 위치, 방향등을 나타냄.</li>
+  <li>Controller와 Pawn은 1:1 대응 관계.(무슨 일이 있어도 각 Controller는 하나의 Pawn만 제어한다.)</li>
+  <li>
+    <p>게임 플레이 도중 스폰된 Pawn이 자동적으로 Controller에 Possess되지 않는다.</p>
+  </li>
+  <li>Character</li>
+  <li>Pawn을 상속 받아서 만든 클래스</li>
+  <li>
+    <p>걸어다닐 수 있는 능력을 지닌 특수 유형 Pawn.</p>
+  </li>
+  <li>Player Controller</li>
+  <li>클라이언트의 느낌을 많이 받음</li>
+  <li>사용자의 키 입력을 받는다.</li>
+  <li>UI 처리를 담당하는 클래스</li>
+  <li>클라이언트에서 매 프레임마다 검사/체크 하는 로직을 구현하기 좋음</li>
+  <li>클라이언트의 메인 클래스</li>
+  <li>플레이어 컨트롤러가 Pawn을 조종한다.(1:1 대응 관계)</li>
+</ul>
+
+<h2 id="컴포넌트">컴포넌트</h2>
+<ul>
+  <li>게임에서 액터의 주요 기능은 크게 세가지로 나눌 수 있다.</li>
+</ul>
+
+<h3 id="시각적-기능--플레이어에게-어떻게-보여질-것인가">시각적 기능 : 플레이어에게 어떻게 보여질 것인가?</h3>
+<h3 id="물리적-기능--액터의-이동과-액터들-간의-상호-동작을-어떻게-할-것인가">물리적 기능 : 액터의 이동과 액터들 간의 상호 동작을 어떻게 할 것인가?</h3>
+<h3 id="움직임--액터가-어떤-움직임을-가질-것인가">움직임 : 액터가 어떤 움직임을 가질 것인가?</h3>
+
+<ul>
+  <li>언리얼엔진은 엔진의 기능을 컴포넌트 단위로 액터에게 제공해준다.</li>
+  <li>액터는 기능별로 존재하진 않음. 액터의 기능을 규격화하여 담당하는 것이 컴포넌트</li>
+  <li>이러한 기능이 컴포넌트로 구분이 되어있는 것</li>
+  <li>하나의 액터 안에 여러개의 컴포넌트를 조합해서 나만의 액터를 만들 수도 있음.</li>
+  <li>액터 안에서 서로의 컴포넌트들이 상호작용을 이루게 됨.
+    <blockquote>
+      <p>언리얼에서 하는 코딩작업은 이벤트 중심의 게임 동작.</p>
+    </blockquote>
+  </li>
+  <li>액터는 여러개의 컴포넌트를 가질 수 있으며, 그 중에서 대표하는 ‘하나의 컴포넌트(Root Component)’를 반드시 지정해야 한다.</li>
+</ul>
+
+<h3 id="스태틱-매쉬-컴포넌트-static-mesh-component">스태틱 매쉬 컴포넌트 (Static Mesh Component)</h3>
+<ul>
+  <li>애니메이션 되지 않는 매쉬들. 물체. 모델링 에셋</li>
+  <li>시각적인 기능과 물리적인 기능을 제공하는 모듈</li>
+  <li>비디오 메모리에 캐시되고 그래픽 카드에 렌더링할 수 있는 폴리곤 세트로 구성되는 지오메트리 조각</li>
+  <li>비디오 메모리에 저장되기 때문에 위치, 방향, 크기를 조절할 수는 있지만, 어떤식으로든 그 버텍스를 움직일 수는 없다.</li>
+  <li>
+    <p>레벨의 월드 지오메트리를 만드는 데 쓰이는 기본 단위</p>
+  </li>
+  <li>버텍스(Vertex)</li>
+  <li>하나의 ‘점’</li>
+  <li>정점이라 하며, 3D의 가장 기본단위</li>
+  <li>2D의 포인트와 대응되는 개념이지만, 정점은 위치, 색상, 법선 등 다양한 정보를 담고 있다.</li>
+  <li>버텍스와 포인트의 차이
+    <ul>
+      <li>포인트는 X, Y 좌표값만 가지고 있지만, 버텍스는 위치, 색상, 법선 등의 다양한 정보를 가지고있다.</li>
+    </ul>
+  </li>
+  <li>폴리곤(Polygon)</li>
+  <li>
+    <p>최소의 면단위 (최소 3개의 버텍스가 모여 만들어지는 하나의 면을 ‘폴리곤’이라고 한다.)</p>
+  </li>
+  <li>메쉬 (Mesh)</li>
+  <li>폴리곤들이 모이면 최소한 3차원 공간상의 면을 만든다.</li>
+  <li>폴리곤들이 모여 만들어진 3차원 공간산의 물체(Object) 이다.</li>
+</ul>
+
+<h3 id="스켈레탈-메시-컴포넌트-skeletal-mesh-component">스켈레탈 메시 컴포넌트 (Skeletal Mesh Component)</h3>
+<ul>
+  <li>애니메이션 정보가 있는 모델렝 에셋</li>
+  <li>시각적인 기능과 애니메이션, 캐릭터의 물리 기능을 제공하는 모듈.</li>
+  <li>주로 캐릭터에 사용된다.</li>
+</ul>
+
+<h3 id="콜리전-컴포넌트-collision-component">콜리전 컴포넌트 (Collision Component)</h3>
+<ul>
+  <li>물리학에서 두 물체가 서로의 운동에 간섭(충돌)하는 현상을 말한다.</li>
+  <li>언리얼 엔진에서는 액터와 액터 간의 충돌 현상을 처리하는 방식에 대해서 설정할 수 있다.</li>
+  <li>구/박스/캡슐 형태의 지정한 영역의 물리적인 기능을 설정하기 위해 제공하는 모듈</li>
+  <li>액터를 감싸고 있는 컬리전 컴포넌트를 통해서 액터간의 충돌이 일어났는지 여부를 판단한다.</li>
+  <li>단순 컬리전과 복합 컬리전 두가지로 존재한다.</li>
+  <li>스태틱 메시 에디터에서 세팅 옵션에 Collision Complexity(충돌 복잡도) 세팅에서 원하는 값을 세팅할 수 있다.</li>
+  <li>컬리전 옵션으로는 총 세가지가 존재한다.</li>
+  <li>Default : 기본 - 단순 컬리전 요청이 단순컬리전을, 복합 요청은 복합 컬리전을 사용하도록 하는 ‘기본’ 동작.</li>
+  <li>UseSimpleAsComplex : 단순을 복합으로 사용 - 복합 쿼리 요청시에도 엔진은 단순 모양에 대한 쿼리를
+ 계속, 기본적으로 트라이메시를 무시합니다. 트라이메시를 구울 필요가 없기에 메모리가 절약되고, 컬리전 지오메트리가
+ 단순해 지면 퍼포먼스가 향상될 수도 있습니다.</li>
+  <li>
+    <p>UseComplexAsSimple : 복합을 단순으로 사용 - 단순 쿼리 요청시에도 엔진은 복합 모양에 대한 쿼리를 계속,
+ 기본적으로 단순 컬리전을 무시합니다. 이를 통해 물리 시뮬레이션 컬리전에 트라이메시를 사용할 수 있습니다. 참고로
+ UseComplexAsSimple 사용중인 경우 오브젝트 시뮬레이션은 불가능하나, 다른 시뮬레이션(단순) 오브젝트와의 충돌은 가능합니다.</p>
+  </li>
+  <li>Construction Script : 새로운 액터 오브젝트를 만들 때 딱 한번 호출되는 함수. / 초기화</li>
+</ul>
+
+<h3 id="카메라-컴포넌트-camera-component">카메라 컴포넌트 (Camera Component)</h3>
+<ul>
+  <li>플레이어의 모티너 화면에 출력해주는 기능을 담당하는 컴포넌트.</li>
+</ul>
+
+<h3 id="오디오-컴포넌트-audio-component">오디오 컴포넌트 (Audio Component)</h3>
+<ul>
+  <li>가상 세계에서 소리를 발생시키는 데 사용하는 기능.</li>
+</ul>
+
+<h3 id="파티클-시스템-컴포넌트-particlesystem-component">파티클 시스템 컴포넌트 (ParticleSystem Component)</h3>
+<ul>
+  <li>파티클 시스템으로 설계된 이펙트를 화면에 보여주기 위한 기능이다.</li>
+</ul>
+
+<h3 id="라이트-컴포넌트-light-component">라이트 컴포넌트 (Light Component)</h3>
+<ul>
+  <li>전구, 헤드라이트 등과 같이 물체에 광원 효과를 부여하는 기능이다.</li>
+</ul>
+
+<h3 id="무브먼트-컴포넌트-movement-component">무브먼트 컴포넌트 (Movement Component)</h3>
+<ul>
+  <li>물체에 특정한 움직임을 부여하는 기능이다.</li>
+</ul>
+
+<h2 id="컴포넌트의-분류">컴포넌트의 분류</h2>
+<ul>
+  <li>씬 컴포넌트(Scene Component) : 트랜스폼 정보가 필수적인 컴포넌트.</li>
+  <li>액터 컴포넌트 (Actor Component) : 기능만 제공하는 컴포넌트.</li>
+  <li>씬 컴포넌트는 액터 컴포넌트를 상속받아 트랜스폼 정보를 추가한 클래스이다.</li>
+</ul>
+
+<h2 id="c-클래스가-언리얼-오브젝트-클래스가-되기-위한-매크로-규칙">C++ 클래스가 언리얼 오브젝트 클래스가 되기 위한 매크로 규칙</h2>
+<h3 id="클래스-선언-매크로--해당-클래스가-언리얼-오브젝트임을-선언하기-위한-매크로이다">클래스 선언 매크로 : 해당 클래스가 언리얼 오브젝트임을 선언하기 위한 매크로이다.</h3>
+<ul>
+  <li>클래스 선언 윗줄에 UCLASS라는 매크로를 선언.</li>
+  <li>클래스 내부에는 GENERATED_BODY 매크로를 선언.</li>
+</ul>
+
+<h3 id="클래스-이름-접두사--언리얼-오브젝트는-규칙에-맞는-접두사가-붙어야-한다">클래스 이름 접두사 : 언리얼 오브젝트는 규칙에 맞는 접두사가 붙어야 한다.</h3>
+<ul>
+  <li>A와 U, F 접두사가 존재한다.</li>
+  <li>A는 액터 클래스에 사용한다.</li>
+  <li>U는 액터가 아닌 클래스에 사용한다.</li>
+  <li>F는 언리얼 오브젝트와 관련 없는 일반 C++ 클래스 혹은 구조체를 의미한다.</li>
+</ul>
+
+<h3 id="generatedh-헤더-파일--언리얼-헤더-툴unreal-header-tool이라는-도구를-사용해-클래스-선언을-분석하고-언리얼-실행-환경에-필요한-부가-정보를-별도의-파일에-생성한다">generated.h 헤더 파일 : 언리얼 헤더 툴(Unreal Header Tool)이라는 도구를 사용해 클래스 선언을 분석하고, 언리얼 실행 환경에 필요한 부가 정보를 별도의 파일에 생성한다.</h3>
+<ul>
+  <li>코드를 작성하는 시점에 이파일은 존재하지 않지만, 컴파일 과정에서 필연적으로 발생한다.</li>
+  <li>언리얼 오브젝트 선언의 마지막 #include 구문에 이 헤더파일을 반드시 선언해줘야 한다.</li>
+</ul>
+
+<h3 id="외부-모듈에의-공개-여부--언리얼-엔진에서-다른-모듈에서-해당-객체에-접근하게-할-수-있도록-지정-여부-판단">외부 모듈에의 공개 여부 : 언리얼 엔진에서 다른 모듈에서 해당 객체에 접근하게 할 수 있도록 지정 여부 판단.</h3>
+<ul>
+  <li>클래스 선언 앞에 ‘모듈명_API’ 키워드를 추가한다.</li>
+  <li>이 키워드가 없으면 다른 모듈에서 해당 객체에 접근할 수 없다.</li>
+  <li>윈도우 DLL 시스템의 _declspec(dllexport) 키워드를 언리얼에서 사용하는 방법이다.</li>
+</ul>
+
+<h3 id="언리얼-엔진에서-컴포넌트를-생성하는-함수">언리얼 엔진에서 컴포넌트를 생성하는 함수</h3>
+<ul>
+  <li>CreateDefaultSubobject API</li>
+  <li>언리얼 엔진에서는 new 키워드가 아닌 위의 함수로 컴포넌트를 생성할 수 있다.</li>
+  <li>CreateDefaultSubobject API에 사용하는 문자열 값은 액터에 속한 컴포넌트를 구별하기 위한 Hash 값 생성에 사용된다.</li>
+  <li>어떤 값을 넣어도 상관없지만, 다른 컴포넌트와 중복되지 않는 유일한 값을 지정해야 한다.</li>
+</ul>
+
+<h2 id="액터-이벤트">액터 이벤트</h2>
+
+<ul>
+  <li>PostInitializeComponents : 액터에 속한 모든 컴포넌트의 세팅이 완료됬을 때 호출되는 함수.</li>
+  <li>BeginPlay : 게임이 시작 될 때, BeginPlay가 정의가 된 액터들은 딱 한번만 호출한다.(초기화)</li>
+  <li>Construction Script : BeginPlay와 비슷하지만, 이 함수는 액터를 직접 배치할 때와 디테일의 값을 변경할 때 호출된다.(게임이 실행될 때는 호출하지않음.)
+동적 스폰을 통해 생성할 때는 Construction Script -&gt; BeginPlay가 호출된다.</li>
+  <li>Tick : 게임 시뮬레이션을 한번 돌 때마다 호출되는 함수. 지속적으로 값을 바꾸는 작업을 할 때 사용.</li>
+  <li>Tick 이벤트 : 틱당 계속 호출되는 이벤트</li>
+  <li>60 프레임 : 1초에 60번 계산을 한다.</li>
+  <li>End Play : 액터가 삭제 될 때 호출되는 이벤트</li>
+  <li>EndPlayReason : 액터가 삭제되는 이유</li>
+  <li>Collision OnComponent Begin Overlap : 액터가 충돌이 일어나는 시점에 발생하는 이벤트</li>
+  <li>Collision OnComponent End Overlap : 액터가 충돌이 끝난 시점에 발생하는 이벤트</li>
+  <li>ActorBeginOverlap : 내가 가지고 있는 하위 컴포넌트 중에 begin overlap이 발생하면, 같이 호출되는 이벤트</li>
+  <li>Delay : 지정한 시간(Duration)동안 다음 노드로 가기 전까지 시간을 기다린 후 다음 노드를 진행하는 함수.</li>
+  <li>Custom Event : 엔진에서 제공하는 이벤트가 아닌, 프로그래머가 직접 이벤트를 생성하여 로직을 작성하여 원할 때 호출할 수 있도록 작성할 수 있다.</li>
+  <li>Deactivate : 기능 컴포넌트를 비활성화를 시키는 함수.</li>
+  <li>Activate : 기능 컴포넌트를 활성화 시키는 함수.</li>
+  <li>Set Visibility : 물체가 레벨에 눈으로 볼 수 있도록 표현 되어있는 컴포넌트는 이를 통해서 보여지거나, 감출 수 있다.</li>
+  <li>Propagate to Children : 해당 액터(또는 컴포넌트)의 자식 액터들까지 영향을 미치게 하는 기능.</li>
+  <li>OverLab : 액터의 컬리전들끼리 겹치는 현상을 말함.</li>
+  <li>SphereOverlapActors : 해당 액터 주위에 다른 액터가 있는지 검사할 수 있는 함수. 비슷한 함수로 Box, Capsule, ComponentOverlapActors가 있다.
+    <ul>
+      <li>Return 값은 boolean 값으로, 조건에 해당하는 액터가 있을 경우 true, 그렇지 않을 경우 false를 리턴.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="액터-병합-기능">액터 병합 기능</h2>
+
+<ul>
+  <li>물체를 하나로 합쳐주는 기능.</li>
+  <li>잘 활용하면 외부 모델링을 게임의 최적화 상태로 스태틱 메쉬 컴포넌트 데이터를 변경해줄 수 있다.</li>
+  <li>이 때 각각의 오브젝트에 있는 스태틱 메쉬 컴포넌트의 리소스를 합쳐 하나의 새로운 스태틱 메쉬 컴포넌트 리소스로 제작해주는 기능.</li>
+</ul>
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#actor">actor</a></li><li>
+        <a class="post-tag" href="/tags/#unreal">unreal</a></li><li>
+        <a class="post-tag" href="/tags/#unrealengine">unrealengine</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/programming/2021/05/19/cpp-effective-til.html">
+          Effective C++ Today I Learn (Day1)
+          <small><time datetime="2021-05-19T00:00:00+09:00">19 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/05/09/leetcode-linkedlistcycle.html">
+          LeetCode LinkedList Cycle 문제
+          <small><time datetime="2021-05-09T00:00:00+09:00">09 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/04/20/leetcode-PalindromeLinkedList.html">
+          LeetCode PalindromeLinkedList 문제
+          <small><time datetime="2021-04-20T00:00:00+09:00">20 Apr 2021</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2017&nbsp;-&nbsp;2021 . All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

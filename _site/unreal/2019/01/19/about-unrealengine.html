@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); "><header class="masthead">
+  
+  <div class="masthead-title">
+    <a href="/" title="Home"></a>
+  </div>
+  <div class="masthead-tagline">
+    <small></small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://vszhub@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://twitter.com/vszhub">
+            <i class="fab fa-twitter" title="Twitter"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/vszhub/not-pure-poole">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">Unreal Engine 입문 시작</h1>
+  <div class="post-meta"><time datetime="2019-01-19T00:00:00+09:00" itemprop="datePublished">19 Jan 2019</time></div>
+
+  <p>입문과 팁</p>
+
+<p>UObject : 기본이 되는 클래스 =&gt; 유니티의 Component
+ -&gt; 가비지 컬렉터, 레퍼런스 업데이트
+ -&gt; 레퍼런스 카운터 존재
+ -&gt; 스마트포인터 사용 권장.</p>
+
+<p>AActor : 게임 내에 배치되는 오브젝트. (= GameObject), UObject 상속
+ -&gt; 하지만 가비지 컬렉션에 의해 관리되지 않고, 해제자를 통해서만 해제를 할 수 있다.
+ -&gt; 레퍼런스 카운터가 없음.</p>
+
+<p>object와 actor의 차이점.
+ -&gt; UObject를 상속하는 클래스 받는 클래스 접두사는 U
+ -&gt; AActor를 상속하는 클래스 받는 클래스 접두사는 A</p>
+
+<p>클래스를 생성할 때 이름에 A 또는 U는 자동으로 붙여지기 떄문에 따로 입력하지 않는다.</p>
+
+<p>APawn, ACharacter : 게임 상에서 움직이는 모든 액터들을 표현할 떄 사용하는 클래스.</p>
+
+<p>APawn과 ACharacter의 차이 : ACharacter는 2족보행(인간형)에 특화된 APawn</p>
+
+<p>UActorComponent : 기능만 구현. Actor에 귀속되는 컴포넌트</p>
+
+<p>USceneComponent : Transform을 가지고 있는 컴포넌트. ex 카메라.</p>
+
+<p>CDO Class Default Object</p>
+
+<p>클래스 생성자로 인해 생성된 이후로 변경되지 않음.</p>
+
+<p>C++ 구조.</p>
+
+<p>include generated.h : 리플렉션이라는 실행 시간에 자신을조사할 수 있는 기능이 동작.
+PROJECTDRU_API
+리플렉션이란? 런타임에 객체의 정보를 알 수 있는기능.
+ -&gt; 실행 중에 (런타임중) 클래스가 무엇을 가지고 있는지, 어떤 기능을 수행하는지 알 수 있는 기능.
+ -&gt; 실행 중에 프로퍼티를 제공할 수 있는 기능.
+ -&gt; generated.h가 존재하는 이유.
+ -&gt; C++에는 리플렉션이 없다. 유일하게 언리얼만이 리플렉션 기능을 갖추고 있다.</p>
+
+<p>GENREATED_BODY() 매크로.
+ -&gt; 이 매크로 아래 작성되는 변수 및 함수는 public이 default로 선언된다.
+ -&gt; 가독성을 위해 public, private는 명시적으로 선언해주는 것이 좋다.</p>
+
+<p>언리얼 엔진 클래스는 DLL로 관리.</p>
+
+<p>언리얼 모듈에 대한 이해 필요.</p>
+
+<p>핫리로드 : 생성자 수정 또는 헤더에서 수정할 경우 적용이 잘 안되는 경우 존재.</p>
+
+<p>언리얼변수 UPROPERTY 매크로 사용. 블루프린트에서 변수를 사용할 경우는 UPROPERTY가 public 변수여야함.</p>
+
+<p>언리얼의 코딩 표준에서는 변수는 대문자로 시작한다.</p>
+
+<p>AController는 AActor를 상속받는 클래스.</p>
+
+<p>FConstPlayerControllerIterator</p>
+
+<p>TActorIterator</p>
+
+<p>Check 기능.</p>
+
+<p>UE_LOG</p>
+
+<p>EngineUtils.h -&gt; GEngine-&gt;AddOnScreenDebugMessage</p>
+<ul>
+  <li>Print함수와 동일.</li>
+</ul>
+
+<p>언리얼이 유니티보다 먼저 나옴</p>
+
+<p>#include “Engine/World.h”</p>
+
+<p>unit의 기본단위 unity : m // unreal : cm.</p>
+
+<p>GetPlayerPawn -&gt; GetPlayerCharacter를 더 많이씀.
+ -&gt; 차이점.</p>
+
+<p>Kismet -&gt; 언리얼3에서 쓰이는 비주얼스크립팅.
+ 언리얼4에서의 블루프린트 스크립팅.</p>
+
+<p>블루프린트에서 제공하는 함수들을 사용하고 싶을때는 Kismet을 include로 가져와야 한다.</p>
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#unreal">unreal</a></li><li>
+        <a class="post-tag" href="/tags/#unrealengine">unrealengine</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/programming/2021/05/19/cpp-effective-til.html">
+          Effective C++ Today I Learn (Day1)
+          <small><time datetime="2021-05-19T00:00:00+09:00">19 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/05/09/leetcode-linkedlistcycle.html">
+          LeetCode LinkedList Cycle 문제
+          <small><time datetime="2021-05-09T00:00:00+09:00">09 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/04/20/leetcode-PalindromeLinkedList.html">
+          LeetCode PalindromeLinkedList 문제
+          <small><time datetime="2021-04-20T00:00:00+09:00">20 Apr 2021</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2017&nbsp;-&nbsp;2021 . All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

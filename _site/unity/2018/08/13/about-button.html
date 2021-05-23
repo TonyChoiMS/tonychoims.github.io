@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); "><header class="masthead">
+  
+  <div class="masthead-title">
+    <a href="/" title="Home"></a>
+  </div>
+  <div class="masthead-tagline">
+    <small></small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://vszhub@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://twitter.com/vszhub">
+            <i class="fab fa-twitter" title="Twitter"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/vszhub/not-pure-poole">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">Unity3D Button Component</h1>
+  <div class="post-meta"><time datetime="2018-08-13T00:00:00+09:00" itemprop="datePublished">13 Aug 2018</time></div>
+
+  <h1 id="button-component"><strong>[Button Component]</strong></h1>
+
+<ul>
+  <li>컴포넌트의 이름에 맞게 Button Component가 추가된 UI를 사용자가 누를 경우 이벤트를 실행할 수 있도록 설계된 Component다.</li>
+  <li>Web Form의 Submit 또는 Cancel과 유사한 컴포넌트.</li>
+</ul>
+
+<p><br /></p>
+<h2 id="property"><em>Property</em></h2>
+
+<ol>
+  <li>Interactable : Button 기능을 활성/비활성화 한다. Transition 속성이 Animation일 경우 이 옵션을 언체크하면 Disabled Trigger가 발생한다.</li>
+  <li>Transition
+    <ul>
+      <li>버튼은 Normal, Highlighted, Pressed, Disabled 총 4가지의 상태를 가지고 있다.</li>
+      <li>이 때, 버튼의 클릭, 롤오버, 비활성화 등의 상태 및 버튼의 외형의 변화를 어떻게 변경할 것인지 설정한다.[None/ColorTint/SpriteSwap/Animation]</li>
+      <li>None : 버튼 상태가 바뀌어도 아무런 변화가 없다.</li>
+      <li>Color Tint : 버튼 상태에 따라 색상의 변화를 준다. Color Multiplier로 변하는 색상의 농도를 조절할 수 있다. Fade Duration은 다른 상태로 페이드인, 아웃 되는 시간을 조절할 수 있다.</li>
+      <li>SpriteSwap : 버튼 상태에 따라 이미지를 변경한다. 기존의 Target Graphic은 Normal상태의 이미지로 지정되고, 그 외 상태일 때의 이미지를 지정할 수 있는 속성이 추가된다.</li>
+      <li>Animation : 애니메이션 효과를 적용할 수 있으며, ‘Auto Generate Animation’ 버튼을 누를 경우 애니메이션 컨트롤러가 자동 생성된다.</li>
+    </ul>
+  </li>
+  <li>Navigation
+    <ul>
+      <li>키보드 입력 포커스를 받은 후 키를 통해 다음 버튼으로 이동하는 방식을 설정한다.</li>
+      <li>None : 포커스 이동 기능을 사용하지 않는다.</li>
+      <li>Horizontal : 좌우 화살표 키만 허용한다.</li>
+      <li>Vertical : 상하 화살표 키만 허용한다.</li>
+      <li>Automatic : 상하좌우 화살표 키를 모두 사용하며 자동으로 이동 순서가 결정된다.</li>
+      <li>Explict : 포커스 이동을 직접 선택할 수 있으며, 전후좌우 방향 이동이 자유롭다.</li>
+    </ul>
+  </li>
+  <li>OnClick : 버튼을 클릭했을 때 수행할 함수를 연결하는 이벤트 속성이다.</li>
+</ol>
+
+<p><img src="/static/assets/img/blog/Unity/buttoncomponent.png" alt="이해를 돕기 위해 Button Component 이미지를 첨부" /></p>
+
+<p>참고 : https://docs.unity3d.com/Manual/script-Button.html</p>
+
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#unity">unity</a></li><li>
+        <a class="post-tag" href="/tags/#button">button</a></li><li>
+        <a class="post-tag" href="/tags/#ui">ui</a></li><li>
+        <a class="post-tag" href="/tags/#component">component</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/programming/2021/05/19/cpp-effective-til.html">
+          Effective C++ Today I Learn (Day1)
+          <small><time datetime="2021-05-19T00:00:00+09:00">19 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/05/09/leetcode-linkedlistcycle.html">
+          LeetCode LinkedList Cycle 문제
+          <small><time datetime="2021-05-09T00:00:00+09:00">09 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/04/20/leetcode-PalindromeLinkedList.html">
+          LeetCode PalindromeLinkedList 문제
+          <small><time datetime="2021-04-20T00:00:00+09:00">20 Apr 2021</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2017&nbsp;-&nbsp;2021 . All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

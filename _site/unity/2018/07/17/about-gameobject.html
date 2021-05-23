@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); "><header class="masthead">
+  
+  <div class="masthead-title">
+    <a href="/" title="Home"></a>
+  </div>
+  <div class="masthead-tagline">
+    <small></small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://vszhub@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://twitter.com/vszhub">
+            <i class="fab fa-twitter" title="Twitter"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/vszhub/not-pure-poole">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">Unity3D GameObject</h1>
+  <div class="post-meta"><time datetime="2018-07-17T00:00:00+09:00" itemprop="datePublished">17 Jul 2018</time></div>
+
+  <p>최종 수정일 : 2018-08-13
+<br /></p>
+<h1 id="-gameobject">&gt; <strong>[GameObject]</strong></h1>
+<p><br /><br /></p>
+<ul>
+  <li>유니티는 컴포넌트 기반 개발(CBD : Component Based Development) 방법론을 지원한다.</li>
+  <li>CBD는 독립적인 기능 단위로 컴포넌트를 제작해 필요한 기능을 조립하는 방식.</li>
+  <li>컴포넌트란 게임오브젝트의 기능을 담당하는 부분.</li>
+  <li>CBD는 컴포넌트의 재사용이 가능하고, 높은 생산성이 장점이다.</li>
+  <li>GameObject는 특정 속성이나 기능을 갖춘 오브젝트를 담을 수 있는 상자에 비유.</li>
+  <li>유니티에서는 일반적으로 사용되는 오브젝트를 일부 템플릿 형태로 제공</li>
+  <li>Light, 3D Object, Particle, Camera</li>
+  <li>캐릭터, 아이템, 상자, 몬스터 등 모든 것이 게임 오브젝트이다.</li>
+  <li>GameObject들은 기본적으로 Transform Component를 포함하고있다.</li>
+  <li>Transform Component를 통해 해당 Object가 월드 상에 어디에 위치하고 있는지, 얼마나 회전하고 있는지, 어느정도 크기인지 결정되기 때문.
+<br />
+<br />
+    <h2 id="유니티에서-gameobject에게-제공하는-기본함수"><strong>유니티에서 GameObject에게 제공하는 기본함수</strong></h2>
+    <p><br /></p>
+    <ol>
+      <li>Awake</li>
+    </ol>
+  </li>
+  <li>스크립트가 실행될 때 한 번만 호출되는 함수.</li>
+  <li>상태 값 또는 변수의 초기화에 사용된다.</li>
+  <li>스크립트 함수 중, 가장 먼저 호출된다.</li>
+  <li>스크립트가 비활성화 되어있어도 호출된다.</li>
+  <li>Coroutine으로 실행 불가.
+<br />
+    <ol>
+      <li>Start</li>
+    </ol>
+  </li>
+  <li>Update 함수가 호출되기 이전에 한 번만 호출되는 함수.</li>
+  <li>스크립트가 활성화 되어있어야 실행된다.</li>
+  <li>다른 스크립트의 모든 Awake가 모두 다 실행된 이후에 실행된다.</li>
+  <li>Coroutine으로 실행 가능
+<br />
+    <ol>
+      <li>Update</li>
+    </ol>
+  </li>
+  <li>매 프레임마다 호출되는 함수.</li>
+  <li>주로 게임의 핵심 로직을 작성하는데 사용.</li>
+  <li>스크립트가 활성화 돼 있어야 실행된다.
+<br />
+    <ol>
+      <li>LateUpdate
+<br /></li>
+    </ol>
+  </li>
+  <li>모든 Update 함수가 호출되고 나서 한 번씩 호출된다.</li>
+  <li>Update 함수에서 전처리가 끝난 후 실행해야하는 로직에 사용된다.</li>
+  <li>카메라 이동 로직에 주로 사용하는 함수.</li>
+  <li>스크립트가 활성화 돼 있어야 실행된다.
+<br />
+    <ol>
+      <li>FixedUpdate
+<br /></li>
+    </ol>
+  </li>
+  <li>물리엔진의 시뮬레이션 계산주기로 기본값은 0.02초다.</li>
+  <li>발생하는 주기가 일정하다.
+<br />
+    <ol>
+      <li>OnEnable
+<br /></li>
+    </ol>
+  </li>
+  <li>게임 오브젝트 또는 스크립트가 활성화 됐을 때 호출된다.</li>
+  <li>이벤트 연결 시 사용한다.</li>
+  <li>Coroutine 사용 불가.
+<br />
+    <ol>
+      <li>OnDisable
+<br /></li>
+    </ol>
+  </li>
+  <li>게임오브젝트 또는 스크립트가 비활성화 됐을 때 호출된다.</li>
+  <li>이벤트 연결을 종료할 때 사용한다.</li>
+  <li>Coroutine 사용 불가.
+<br />
+    <ol>
+      <li>OnGUI
+<br /></li>
+    </ol>
+  </li>
+  <li>레거시 GUI 관련 함수를 사용할 때 사용한다.
+<br />
+———————————————————————————-
+<br />
+    <h2 id="component-cache-처리"><strong>Component Cache 처리</strong></h2>
+    <p><br /></p>
+    <blockquote>
+      <p>Update는 프레임마다 한 번씩 호출되는 함수로서 항상 최적화에 주의를 기울여야 한다.</p>
+    </blockquote>
+  </li>
+  <li>이동 로직의 경우 Transform Component의 Position 속성을 조금씩 변경하는 것으로 프레임마다 Transform Component에 접근하는 방식은 바람직하지 않다.</li>
+  <li>따라서 Update 함수에서 접근해야 할 컴포넌트는 Awake 또는 Start 함수에서 미리 변수에 할당한 후에 Update 함수에서 사용하는 것을 권장한다.
+<br />
+    <h2 id="키워드"><strong>키워드</strong></h2>
+    <p><br />
+<br /></p>
+    <h3 id="접근-지시자-public">접근 지시자 public</h3>
+    <p><br /></p>
+  </li>
+  <li>기본적으로 다른 클래스에서 접근할 수 있게 해주는 접근 지시자.</li>
+  <li>유니티에서는 변수를 public으로 선언할 경우, Inspector View에 해당 변수가 노출되서, 변수의 값을 직접 수정할 수 있다.
+<br />
+    <h3 id="접근-지시자-private">접근 지시자 private</h3>
+    <p><br /></p>
+  </li>
+  <li>다른 클래스에서 접근할 수 없고, 해당 클래스에서만 사용할 수 있는 접근 지시자.</li>
+  <li>유니티에서는 Inspector View의 모드를 Debug Mode로 설정하면, private 변수값도 확인할 수 있다.</li>
+  <li>Debug Mode로 설정할 경우, Inspector View는 읽기 전용(Read-Only)가 된다.</li>
+  <li>Inspector View의 Default Mode는 Normal Mode.</li>
+  <li>또는 [SerializeField] 키워드를 해당 변수 private 앞에 선언할 경우, private 속성은 유지한 채, Inspector View에 해당 변수를 노출시킬 수 있다.
+<br />
+    <h3 id="this">this</h3>
+    <p><br /></p>
+  </li>
+  <li>this 키워드를 사용한 해당 스크립트(클래스)를 지시.</li>
+  <li>this.gameObject</li>
+  <li>이 스크립트(클래스)가 추가된 게임오브젝트를 의미한다.</li>
+</ul>
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#unity">unity</a></li><li>
+        <a class="post-tag" href="/tags/#awake">awake</a></li><li>
+        <a class="post-tag" href="/tags/#component">component</a></li><li>
+        <a class="post-tag" href="/tags/#componentcache">componentcache</a></li><li>
+        <a class="post-tag" href="/tags/#gameobject">gameobject</a></li><li>
+        <a class="post-tag" href="/tags/#gamobject-private">gamobject-private</a></li><li>
+        <a class="post-tag" href="/tags/#public">public</a></li><li>
+        <a class="post-tag" href="/tags/#keyword">keyword</a></li><li>
+        <a class="post-tag" href="/tags/#기본함수">기본함수</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/programming/2021/05/19/cpp-effective-til.html">
+          Effective C++ Today I Learn (Day1)
+          <small><time datetime="2021-05-19T00:00:00+09:00">19 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/05/09/leetcode-linkedlistcycle.html">
+          LeetCode LinkedList Cycle 문제
+          <small><time datetime="2021-05-09T00:00:00+09:00">09 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/04/20/leetcode-PalindromeLinkedList.html">
+          LeetCode PalindromeLinkedList 문제
+          <small><time datetime="2021-04-20T00:00:00+09:00">20 Apr 2021</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2017&nbsp;-&nbsp;2021 . All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

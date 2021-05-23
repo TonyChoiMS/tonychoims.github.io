@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); "><header class="masthead">
+  
+  <div class="masthead-title">
+    <a href="/" title="Home"></a>
+  </div>
+  <div class="masthead-tagline">
+    <small></small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://vszhub@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://twitter.com/vszhub">
+            <i class="fab fa-twitter" title="Twitter"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/vszhub/not-pure-poole">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">Unity3D Canvas</h1>
+  <div class="post-meta"><time datetime="2018-08-04T00:00:00+09:00" itemprop="datePublished">4 Aug 2018</time></div>
+
+  <p>최종 수정일 : 2018-08-13
+<br />
+<br /></p>
+<h1 id="gameobject-canvas"><strong>GameObject Canvas</strong></h1>
+<ul>
+  <li>Unity에서 모든 UI Element(텍스트, 이미지, 버튼, 슬라이더 등)는 반드시 이 Canvas 객체 하위에 위치해야만 한다.</li>
+  <li>Rect Transform, Canvas, Canvas Scaler, Graphic Raycaster. 총 4개의 컴포넌트로 구성된 GameObject.</li>
+  <li>한 Scene에서 여러개 생성하거나 다른 Canvas 객체의 하위로 차일드화 할 수 있다.</li>
+  <li>Hierarchy View에 Canvas를 생성할 경우, Event System도 자동으로 생성된다.
+<br />
+    <h2 id="eventsystem">EventSystem</h2>
+  </li>
+  <li>시스템에서 발생하는 키보드, 조이스틱, 스크린터치 등의 입력 정보를 Canvas 하위에 있는 UI 항목에 전달하는 역할.</li>
+  <li>Standalone Input Module 컴포넌트를 포함하고 있다.</li>
+  <li>First Selected 속성을 통해 처음 포커스를 갖는 UI 항목을 지정할 수 있다.</li>
+  <li>EventSystem이 없다면, UI 항목이 클릭 또는 터치와 같은 이벤트에 반응하지 않는다.
+<br />
+    <h2 id="rect-transform">Rect Transform</h2>
+  </li>
+  <li>Canvas 및 UI 항목에 자동적으로 추가되어있다.</li>
+  <li>앵커(Anchors), 피봇(Pivot), 크기(W, H), 위치(Pos X, Pos Y, Pos Z)와 회전 및 스케일 정보를 저장하고 있다.</li>
+  <li>UI용 Transform 컴포넌트 / 기존 Transform 컴포넌트와 동일한 역할</li>
+  <li>속성을 직접 수정할 수 없으며, 화면의 크기에 따라 자동으로 설정된다.
+<br />
+    <h2 id="anchor-point">Anchor Point</h2>
+  </li>
+  <li>UI 항목 상위의 Canvas 영역을 기준으로 표시하는 것.</li>
+  <li>UI 항목의 정렬(Align)과 크기 조절(Stretch)을 설정한다.</li>
+  <li>앵커 포인트는 각각 4개의 삼각형으로 구성돼 있으며, 각각 개별적으로 움직일 수 있다.</li>
+  <li>앵커 포인트는 UI 항목 자기 자신의 Rect Transform이 기준이 아니라 그 상위 객체의 Rect Transform을 기준으로 삼는다.
+<br />
+    <h2 id="anchors-min--max">Anchors Min &amp; Max</h2>
+  </li>
+  <li>앵커 값의 범위를 나타내며, % float 형식의 값이 들어가며, %로 표현된다.</li>
+  <li>Pivot
+<br />
+    <h2 id="anchor-preset">Anchor Preset</h2>
+  </li>
+  <li>각 UI 항목의 정렬과 크기를 미리 정의해놓은 집합.</li>
+  <li>UI 항목의 Inspector View의 Rect Transform의 가장 왼쪽에 있는 것.</li>
+  <li>UGUI의 기본이 되는 개념</li>
+  <li>앵커 프리셋은 각각 일반 마우스를 클릭했을 때와 Alt 키와 Shift키의 조합에 따라 다른 조합을 볼 수 있다. [Alt + Click] [Shift + Click] [Alt + Shift + Click]
+<br />
+    <h2 id="anchoredposition">anchoredPosition</h2>
+  </li>
+  <li>Rect Transform 속성 맨 위에 있는 Pos X, Pos Y, Pos Z는 해당 UI 항목의 ‘앵커 포인트를 기준’으로 상대적으로 얼마만큼 떨어져 있는지를 나타내는 anchoredPosition이다.
+<br />
+    <h2 id="canvas-component">Canvas Component</h2>
+    <ol>
+      <li>UI 항목을 화면에 배치하고 렌더링하는 역할.</li>
+      <li>Render Mode 옵션에 따라 UI 항목의 화면 배치 방식을 결정할 수 있다.</li>
+      <li>Screen Space - Overlay</li>
+    </ol>
+  </li>
+  <li>기본 설정값으로 UI 항목은 씬의 가장 상위 계층에서 표현되며, 화면의 해상도에 맞춰 자동으로 스케일이 조절된다.
+    <ol>
+      <li>Screen Space - Camera</li>
+    </ol>
+  </li>
+  <li>씬의 가장 상위에 UI 항목이 표시되는 것은 Overlay방식과 같지만, UI 항목을 렌더링하는 별도의 카메라를 설정할 수 있다.</li>
+  <li>씬을 비추는 Main Camera와 UI를 위한 카메라로 이원화할 수 있다.</li>
+  <li>Render Camera 속성에 원하는 카메라를 연결하면 된다.</li>
+  <li>UI Camera의 Projection 속성을 Perspective로 설정</li>
+  <li>UI Camera를 따로 설정할 경우, Main Camera와 충돌이 없도록 반드시 Clear Flag, Culling Mask, Depth속성을 적절히 설정해야 한다.
+    <ol>
+      <li>World Space</li>
+    </ol>
+  </li>
+  <li>씬 내에 있는 다른 게임오브젝트에 직접 UI 항목을 추가한다.</li>
+  <li>대표적으로 HUD(Head Up Display)를 구현할 때 사용.</li>
+  <li>특정 게임오브젝트에 Canvas 객체를 추가하고 Render Mode를 World Space로 설정하면 해당 Canvas는 더는 Rect Transform의 영향을 받지 않으며, 해당 게임오브젝트의 위치에 영향을 받는다.
+<br />
+<img src="/static/assets/img/blog/Unity/canvas1.png" alt="Canvas Component Render Mode 변경에 따른 내용" />
+<img src="/static/assets/img/blog/Unity/canvas2.png" alt="Canvas Component Render Mode 변경에 따른 내용" />
+<img src="/static/assets/img/blog/Unity/canvas3.png" alt="Canvas Component Render Mode 변경에 따른 내용" /></li>
+</ul>
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#unity">unity</a></li><li>
+        <a class="post-tag" href="/tags/#canvas">canvas</a></li><li>
+        <a class="post-tag" href="/tags/#eventsystem">eventsystem</a></li><li>
+        <a class="post-tag" href="/tags/#rect-transform">rect-transform</a></li><li>
+        <a class="post-tag" href="/tags/#anchor">anchor</a></li><li>
+        <a class="post-tag" href="/tags/#component">component</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/programming/2021/05/19/cpp-effective-til.html">
+          Effective C++ Today I Learn (Day1)
+          <small><time datetime="2021-05-19T00:00:00+09:00">19 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/05/09/leetcode-linkedlistcycle.html">
+          LeetCode LinkedList Cycle 문제
+          <small><time datetime="2021-05-09T00:00:00+09:00">09 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/04/20/leetcode-PalindromeLinkedList.html">
+          LeetCode PalindromeLinkedList 문제
+          <small><time datetime="2021-04-20T00:00:00+09:00">20 Apr 2021</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2017&nbsp;-&nbsp;2021 . All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

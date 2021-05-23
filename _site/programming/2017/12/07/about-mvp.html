@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); "><header class="masthead">
+  
+  <div class="masthead-title">
+    <a href="/" title="Home"></a>
+  </div>
+  <div class="masthead-tagline">
+    <small></small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://vszhub@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://twitter.com/vszhub">
+            <i class="fab fa-twitter" title="Twitter"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/vszhub/not-pure-poole">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">MVP Pattern</h1>
+  <div class="post-meta"><time datetime="2017-12-07T00:00:00+09:00" itemprop="datePublished">7 Dec 2017</time></div>
+
+  <h1 id="mvp-패턴-">MVP 패턴 !!</h1>
+<p><br /></p>
+<h2 id="mvp-패턴이란">MVP 패턴이란?</h2>
+<ul>
+  <li>1990년대 초기 MS사에서 공개한, MVC 기반의 GUI를 처리하기 위한 패턴</li>
+  <li>MVC 패턴에 비해 Model과 View 간의 결합도를 낮추는데 초점을 맞춤.</li>
+  <li>View, Model, Presenter로 나뉨
+<br />
+    <h2 id="장점">장점</h2>
+  </li>
+  <li>MVC 패턴에 비해 클래스별 코드가 짧아짐.</li>
+  <li>코드를 나눔으로써 TDD 주도 개발이 수월해짐</li>
+  <li>View와 Model 간의 구분 가능</li>
+  <li>Presenter의 역할을 통해 View와 Model 간의 결합도를 낮출 수 있음</li>
+  <li>결합도가 낮아짐에 따라 새로운 기능 추가 또는 변경 등, 유지보수 및 확장성이 좋아짐.</li>
+  <li>View와 Model의 사용법이 분리되면서 Clean Code가 가능하다.</li>
+  <li>Presenter의 역할을 통해 Model과 View 간의 결합도를 낮출 수</li>
+  <li>클래스의 역할에 따라 코드를 분배하는 패턴
+<br />
+    <h2 id="view-presenter-model">View, Presenter, Model</h2>
+    <h3 id="view">View</h3>
+    <ol>
+      <li>어플리케이션의 인터페이스</li>
+    </ol>
+  </li>
+  <li>사용자에게는 View가 곧 Interface
+    <ol>
+      <li>실제 View에 접근하고 화면을 갱신하는 역할을 수행</li>
+      <li>Presenter에 의존적</li>
+    </ol>
+  </li>
+  <li>이벤트를 Presenter에 전달</li>
+  <li>Presenter에서 데이터를 전달받아서 사용자에게 알맞은 화면 제공</li>
+  <li>Presenter가 보내주는 데이터에 따라 로딩 / 경고 / 대화창 등을 표현
+    <ol>
+      <li>View는 또다시 Interface와 View Component(구현체)로 구분할 수있는데,</li>
+    </ol>
+  </li>
+  <li>Interface</li>
+  <li>사용자에게 보여질 기능을 정의</li>
+  <li>Presenter가 호출할 기능을 정의
+    <ol>
+      <li>View Component</li>
+    </ol>
+  </li>
+  <li>Interface에 정의한 기능의 구현 제공</li>
+  <li>사용자 이벤트를 Presenter에 전달
+<br />
+    <h3 id="presenter">Presenter</h3>
+    <ol>
+      <li>Model과 View를 연결 (매개체)</li>
+    </ol>
+  </li>
+  <li>MVP에서 Presenter는 기능/흐름을 제공</li>
+  <li>요구사항이 Presenter의 기능에 대응
+    <ol>
+      <li>사용자 요청에 반응</li>
+      <li>View의 흐름 제어
+<br />
+        <h3 id="model">Model</h3>
+      </li>
+      <li>내부적으로 사용되는 데이터를 저장하고, 처리하는 역할.</li>
+      <li>‘비즈니스 로직’과 ‘어플리케이션 데이터’</li>
+    </ol>
+  </li>
+  <li>인증</li>
+  <li>위치 데이터</li>
+  <li>그 외 네트워크 통신 등
+    <ol>
+      <li>Presenter가 요청한 작업을 수행
+<br />
+<br />
+참조한 사이트 주소 !! 한번씩 읽어보시면 상세한 설명을 해주셔서 큰 도움이 됩니다.
+[MVP for Android: how to organize the presentation layer] - https://antonioleiva.com/mvp-android
+[Adapter, 누구냐 넌? - Data? View?] - https://medium.com/@jsuch2362/adapter-%EB%88%84%EA%B5%AC%EB%83%90-%EB%84%8C-data-view-2db7eff11c20
+[Android MVP 무작정 따라하기] - http://thdev.tech/androiddev/2016/10/12/Android-MVP-Intro.html
+<br />
+관련 예제
+https://github.com/TonyChoiMS/DaggerExample (- Dagger Example의 경우 참고 git이 있었는데 찾지 못하고있습니다. 혹시 주소를 아시는분은 댓글로 알려주시면 감사하겠습니다!)
+https://github.com/antoniolg/androidmvp
+https://github.com/hitherejoe/Bourbon
+https://github.com/taehwandev/AndroidMVPSample
+https://medium.com/@nurrohman/a-simple-android-apps-with-mvp-dagger-rxjava-and-retrofit-4edb214a66d7</li>
+    </ol>
+  </li>
+</ul>
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#mvp">mvp</a></li><li>
+        <a class="post-tag" href="/tags/#mvp-pattern">mvp-pattern</a></li><li>
+        <a class="post-tag" href="/tags/#android">android</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/programming/2021/05/19/cpp-effective-til.html">
+          Effective C++ Today I Learn (Day1)
+          <small><time datetime="2021-05-19T00:00:00+09:00">19 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/05/09/leetcode-linkedlistcycle.html">
+          LeetCode LinkedList Cycle 문제
+          <small><time datetime="2021-05-09T00:00:00+09:00">09 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/04/20/leetcode-PalindromeLinkedList.html">
+          LeetCode PalindromeLinkedList 문제
+          <small><time datetime="2021-04-20T00:00:00+09:00">20 Apr 2021</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2017&nbsp;-&nbsp;2021 . All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

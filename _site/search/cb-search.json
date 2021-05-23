@@ -1,0 +1,284 @@
+{
+	"code" : 0 ,
+	"data" : [
+	 
+	{
+		"title" : "Effective C++ Today I Learn (Day1) - 2021-05-19",
+		"url" : "/programming/2021/05/19/cpp-effective-til.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "LeetCode LinkedList Cycle 문제 - 2021-05-09",
+		"url" : "/algorithm/2021/05/09/leetcode-linkedlistcycle.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "LeetCode PalindromeLinkedList 문제 - 2021-04-20",
+		"url" : "/algorithm/2021/04/20/leetcode-PalindromeLinkedList.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Testing MathJax - 2020-10-02",
+		"url" : "/2020/10/02/testing-mathjax.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Releasing Not Pure Poole v0.1.0 - 2020-10-01",
+		"url" : "/2020/10/01/releasing-not-pure-poole-v0-1-0.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Welcome to Not Pure Poole - 2020-09-30",
+		"url" : "/2020/09/30/welcome-to-not-pure-poole.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "C++ 용어에 대한 정리 - 2020-05-24",
+		"url" : "/c++/programming/2020/05/24/about-cpp-basic.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Unreal Engine 데미지 프레임워크 - 2020-05-05",
+		"url" : "/unreal/2020/05/05/about-damage-framework.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Unreal Engine AI Perception - 2020-05-05",
+		"url" : "/unreal/2020/05/05/about-ai-perception.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Unreal Engine 입문 시작 - 2019-01-19",
+		"url" : "/unreal/2019/01/19/about-unrealengine.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Direct3D Vector - 2018-10-17",
+		"url" : "/programming/2018/10/17/about-vector.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Unity3D Image Component - 2018-08-14",
+		"url" : "/unity/2018/08/14/about-image.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Unity3D Text Component - 2018-08-13",
+		"url" : "/unity/2018/08/13/about-text.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Unity3D Button Component - 2018-08-13",
+		"url" : "/unity/2018/08/13/about-button.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Unity3D Photon Server - 2018-08-04",
+		"url" : "/unity/2018/08/04/about-photon.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Unity3D Canvas - 2018-08-04",
+		"url" : "/unity/2018/08/04/about-canvas.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Unity3D C# Delegate - 2018-07-30",
+		"url" : "/unity/2018/07/30/about-delegate.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Unity3D Generic Collection, Boxing and Unboxing - 2018-07-28",
+		"url" : "/unity/2018/07/28/about-boxing-unboxing.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Unity3D Quaternion Component - 2018-07-23",
+		"url" : "/unity/2018/07/23/about-quaternion.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Unity3D Collider Component - 2018-07-18",
+		"url" : "/unity/2018/07/18/about-collider.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Unity3D RigidBody Component - 2018-07-17",
+		"url" : "/unity/2018/07/17/about-rigidbody.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Unity3D GameObject - 2018-07-17",
+		"url" : "/unity/2018/07/17/about-gameobject.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Unity3D Graphics, Light - 2018-07-16",
+		"url" : "/unity/2018/07/16/about-graphics.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Unreal Engine Socket과 Weapon에 대해서.. - 2018-04-08",
+		"url" : "/unreal/2018/04/08/add-weapon-process.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Unreal Engine LandScape에 대해서.. - 2018-04-08",
+		"url" : "/unreal/2018/04/08/about-land-scape.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Unreal Engine Possess에 대해서.. - 2018-04-05",
+		"url" : "/unreal/2018/04/05/about-possess.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Unreal Engine System에 대해서.. - 2018-04-05",
+		"url" : "/unreal/2018/04/05/about-engine-system.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Unreal Engine Character에 대해서.. - 2018-04-05",
+		"url" : "/unreal/2018/04/05/about-character.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Unreal Engine Animation - 2018-04-05",
+		"url" : "/unreal/2018/04/05/about-animation.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Unreal Engine Actor - 2018-04-05",
+		"url" : "/unreal/2018/04/05/about-actor.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Singleton Pattern - 2017-12-07",
+		"url" : "/programming/2017/12/07/about-singleton.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "객체지향의 3요소 5원칙(Object-Oriented Programming) - 2017-12-07",
+		"url" : "/programming/2017/12/07/about-oop.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "MVP Pattern - 2017-12-07",
+		"url" : "/programming/2017/12/07/about-mvp.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "C++ Linked List. - 2017-12-07",
+		"url" : "/programming/2017/12/07/about-linkedlist.html"
+	}
+	
+	,
+	
+    
+	{
+		"title" : "Dependency 의존성 - 2017-12-07",
+		"url" : "/programming/2017/12/07/about-dependency.html"
+	}
+	
+    
+	]
+}

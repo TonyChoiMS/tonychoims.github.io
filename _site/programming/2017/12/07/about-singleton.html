@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); "><header class="masthead">
+  
+  <div class="masthead-title">
+    <a href="/" title="Home"></a>
+  </div>
+  <div class="masthead-tagline">
+    <small></small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://vszhub@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://twitter.com/vszhub">
+            <i class="fab fa-twitter" title="Twitter"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/vszhub/not-pure-poole">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">Singleton Pattern</h1>
+  <div class="post-meta"><time datetime="2017-12-07T00:00:00+09:00" itemprop="datePublished">7 Dec 2017</time></div>
+
+  <h1 id="singleton-pattern">Singleton Pattern</h1>
+<p><br /></p>
+<h2 id="instance란">Instance란?</h2>
+<ul>
+  <li>객체(Object)를 생성하여 Heap 메모리 영역에 할당된 실체(Stack된 것)를 의미하는 개념.
+<br />
+    <h2 id="singleton이란">Singleton이란?</h2>
+  </li>
+  <li>OOP에서의 객체는 Class와 Instance를 포함한 개념</li>
+  <li>하나의 프로그램 내에서 인스턴스가 사용될 때, 이전에 생성된 인스턴스가 있을 경우 동일한 인스턴스를 생성하는 것이 아닌, 기존에 생성되어 있던 인스턴스를 가져와 사용하는 것을 기본 전략으로 내세운 디자인 패턴이다.</li>
+  <li>프로그램 상에서 동일한 커넥션 객체를 만든다든지, 하나만 사용되어야 하는 객체를 만들때 유용하다. 
+<br />
+    <h2 id="singleton-패턴을-사용하는-이유는">Singleton 패턴을 사용하는 이유는?</h2>
+  </li>
+  <li>지정한 클래스 인스턴스가 프로그램이 작동할 때 단 한개만을 생성하여 유지하고 싶을 경우</li>
+  <li>new 키워드를 통해 객체를 생성하게 되면, 생성되는 클래스의 인스턴스가 Heap 메모리 영역으로 올라가게 되고, 그 인스턴스를 가리키고 있는 변수는 Stack 메모리 영역에 생기게 된다. 
+이렇게 될 경우, 메모리의 낭비가 심해져 누적될 경우 프로세스 처리 시간이 길어질 수 있다.</li>
+  <li>프로그램에서 지속적으로 유지가 되어야하는 정보(ex. 유저 정보 또는 프로그램의 커스텀 정보 등)를 저장/불러오기에 용이하다.
+<br />
+    <h2 id="singleton-패턴의-단점">Singleton 패턴의 단점</h2>
+  </li>
+  <li>프로그램의 Coupling을 높이게 되어 추가 수정의 작업이 있을 경우 사이드 이펙트의 이슈를 가지고 있다.</li>
+  <li>멀티 쓰레드 응용 프로그램에서 명시적 초기화가 필요한 경우, 쓰레딩 문제를 예방하기 위해 조치를 취해야한다.</li>
+  <li>멀티 쓰레드 환경에서 사용할 경우, 한 싱글턴 클래스를 여러 쓰레드에서 사용 및 변경하게 되면, 동기화의 이슈가 생기게 된다.</li>
+  <li>이에 lock을 통해서 쓰레드에서 접근할 때 순차적으로 접근하여 한 쓰레드 씩 사용할 수 있게 처리해줘야 안전하다.</li>
+</ul>
+
+<p>참고자료
+[Java]Singleton이란/사용이유/구현방법 : http://mkil.tistory.com/199</p>
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#oop-designepattern">oop-designepattern</a></li><li>
+        <a class="post-tag" href="/tags/#singleton">singleton</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/programming/2021/05/19/cpp-effective-til.html">
+          Effective C++ Today I Learn (Day1)
+          <small><time datetime="2021-05-19T00:00:00+09:00">19 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/05/09/leetcode-linkedlistcycle.html">
+          LeetCode LinkedList Cycle 문제
+          <small><time datetime="2021-05-09T00:00:00+09:00">09 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/04/20/leetcode-PalindromeLinkedList.html">
+          LeetCode PalindromeLinkedList 문제
+          <small><time datetime="2021-04-20T00:00:00+09:00">20 Apr 2021</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2017&nbsp;-&nbsp;2021 . All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

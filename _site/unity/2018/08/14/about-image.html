@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); "><header class="masthead">
+  
+  <div class="masthead-title">
+    <a href="/" title="Home"></a>
+  </div>
+  <div class="masthead-tagline">
+    <small></small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://vszhub@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://twitter.com/vszhub">
+            <i class="fab fa-twitter" title="Twitter"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/vszhub/not-pure-poole">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">Unity3D Image Component</h1>
+  <div class="post-meta"><time datetime="2018-08-14T00:00:00+09:00" itemprop="datePublished">14 Aug 2018</time></div>
+
+  <h1 id="image-component"><strong>[Image Component]</strong></h1>
+<ul>
+  <li>화면에 텍스쳐를 표시하는 컴포넌트</li>
+  <li>Sprite로 변환된 텍스처만 사용할 수 있다.
+<br /></li>
+</ul>
+
+<h2 id="property"><strong>Property</strong></h2>
+
+<ol>
+  <li>Source Image : 화면에 표시하려는 이미지(Sprite만 허용)</li>
+  <li>Color : 이미지의 색상 지정(RGBA)</li>
+  <li>Material : 이미지를 렌더링하기 위한 머티리얼(노멀맵 적용 시 사용 가능)</li>
+  <li>Image Type : 이미지를 표시하는 방식으로 4가지 옵션.</li>
+</ol>
+
+<ul>
+  <li>Simple
+    <ul>
+      <li>반복이 필요 없거나 이미지 고정 크기인 경우의 옵션</li>
+      <li>Preserve Aspect를 선택 후 이미지 크기를 조절하면, 원본 이미지의 가로/세로 비율에 맞춰 자동으로 조절된다.</li>
+      <li>또는 모든 UI 항목은 Shift 키를 누른 채 크기 조절을 하면 등비율로 조절된다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+<ul>
+  <li>Sliced
+    <ul>
+      <li>이미지 리사이즈를 해도 이미지 왜곡이 없이 표현하는 옵션</li>
+      <li>크기를 조절해도 외곽선의 뭉개짐이나 깨짐이 없도록 Sprite Editor를 통해서 설정할 수 있다.</li>
+      <li>말풍선이나 로그인 대화상자 같은 윈도우를 제작할 때 유용하게 사용됨.</li>
+      <li>Fill Center 속성은 가운데 이미지를 채울 것인가에 대한 속성.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+<ul>
+  <li>Tiled
+    <ul>
+      <li>이미지를 타일링 처리할 수 있는 옵션</li>
+      <li>이미지 크기가 바뀌어도 동일한 패턴이 크기에 상관없이 반복됨.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+<ul>
+  <li>Filed
+    <ul>
+      <li>이미지를 부분적으로 채울 수 있는 옵션</li>
+      <li>특정 방향으로 채워서 그릴 수 있는 것으로, Fill Method  속성에 정의</li>
+      <li>어느 위치에서부터 채워지기 시작하는지는 Fill Origin 속성으로 선택할 수 있다.</li>
+      <li>Clockwise 속성은 시계방향 또는 반대방향을 결정하는 속성이다.</li>
+      <li>Fill Amount 속성은 0.0f ~ 1.0f까지의 값을 지정할 수 있으며, 이미지가 채워지는 비율을 선택하는 속성이다.</li>
+      <li>Filled Image Type은 게임 개발 시 생명 게이지 또는 스킬 버튼의 쿨링타임을 표현할 때 유용하다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="/static/assets/img/blog/Unity/ImageComponent.png" alt="이해를 돕기 위해 Image Component 이미지를 첨부" /></p>
+
+<p><br /></p>
+<h1 id="rawimage-component"><strong>[RawImage Component]</strong></h1>
+<ul>
+  <li>배경 이미지와 같이 큰 이미지에 사용되는 컴포넌트.</li>
+  <li>Sprite 타입 뿐만 아니라 일반 Texture 타입의 이미지도 사용할 수 있다.</li>
+  <li>Sprite Atlas는 포함되지 않는다. (메모리 낭비를 방지하기 위함)</li>
+  <li>UV Rect X, Y 속성은 이미지의 위치를 보정할 수 있는 Offset이다.</li>
+  <li>UV Rect W, H 속성은 가로/세로의 확대 비율이다.</li>
+</ul>
+
+<p>참고</p>
+<ul>
+  <li>Unity UI는 Z-Order의 개념을 하이러키 뷰의 순서로 결정한다.</li>
+  <li>하이러키 뷰에 배치된 순서에 따라 Z-Order가 결정되니, UI를 작업할 때는 유의해서 배치해야한다.(큰 UI로 인해 작은 UI가 가려질 수 있음.))</li>
+</ul>
+
+<p>참고 : https://docs.unity3d.com/Manual/script-Image.html</p>
+
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#unity">unity</a></li><li>
+        <a class="post-tag" href="/tags/#image">image</a></li><li>
+        <a class="post-tag" href="/tags/#ui">ui</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/programming/2021/05/19/cpp-effective-til.html">
+          Effective C++ Today I Learn (Day1)
+          <small><time datetime="2021-05-19T00:00:00+09:00">19 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/05/09/leetcode-linkedlistcycle.html">
+          LeetCode LinkedList Cycle 문제
+          <small><time datetime="2021-05-09T00:00:00+09:00">09 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/04/20/leetcode-PalindromeLinkedList.html">
+          LeetCode PalindromeLinkedList 문제
+          <small><time datetime="2021-04-20T00:00:00+09:00">20 Apr 2021</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2017&nbsp;-&nbsp;2021 . All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

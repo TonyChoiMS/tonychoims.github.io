@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); "><header class="masthead">
+  
+  <div class="masthead-title">
+    <a href="/" title="Home"></a>
+  </div>
+  <div class="masthead-tagline">
+    <small></small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://vszhub@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://twitter.com/vszhub">
+            <i class="fab fa-twitter" title="Twitter"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/vszhub/not-pure-poole">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">Unity3D C# Delegate</h1>
+  <div class="post-meta"><time datetime="2018-07-30T00:00:00+09:00" itemprop="datePublished">30 Jul 2018</time></div>
+
+  <p>최종수정일 : 2018-08-13
+<br /></p>
+<h1 id="delegate">Delegate</h1>
+<p><br /></p>
+<ol>
+  <li>메소드에 대한 참조를 나타내는 방</li>
+  <li>메소드 대신해서 호출하는 역할
+    <ul>
+      <li>메소드의 대리인 역할을 해주는 변수</li>
+      <li>메소드를 직접적으로 호출하는 방식이 아닌, 델리게이트를 호출함으로써 해당 메소드를 호출(실행)할 수 있는 방식.</li>
+      <li>델리게이트를 ‘인스턴스화’ 하면 호환되는 파라미터 타입/개수와 리턴 타입이 같은 모든 메소드를 참조할 수 있게 된다.</li>
+    </ul>
+  </li>
+  <li>C++의 함수 포인터와 동일한 형태로 사용가능하지만, 안전하게 캡슐화하여 사용할 수 있다는 장점이 있다.</li>
+  <li>콜백(CallBack) 메소드를 구현할 때 효율적이다.
+    <ul>
+      <li>CallBack Method란?</li>
+      <li>A 메소드를 호출할 때 B 메소드를 넘겨줘서 A 메소드로 하여금 B 메소드를 호출하도록 하는 것. 이 때 A 메소드를 콜백 메소드라고 한다.</li>
+    </ul>
+  </li>
+  <li>Delegate Chain : 하나의 델리게이트에 여러개의 메소드를 연결시키는 것.
+함수를 멀티캐스트(Multicast)할 때 사용하면 유용하다.
+<br /></li>
+</ol>
+
+<h3 id="예제-코드"><em>예제 코드</em></h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>using UnityEngine;
+
+using System.Collections;
+
+public class DelegateTest : MonoBehavior
+{
+    // 델리게이트에 연결할 함수의 원형 정의
+    delegate void CalNumDelegate(int num);
+
+
+    // 델리게이트 변수 선언
+    CalNumDelegate calNum;
+
+    void Start()
+    {
+        // calNum 델리게이트 변수에 OnePlusNum 함수 연결
+        calNum = OnePlusNum;
+        // 함수 호출
+        calNum(4);
+
+
+        // calNum 델리게이트 변수에 PowerNum 함수 연결
+        calNum = PowerNum;
+
+        // 함수 호출
+        calNum(5);
+    }
+
+    void OnPlusNum(int num)
+    {
+        int result = num + 1;
+        Debug.Log(“One Plus = “ +result);
+    }
+
+    void PowerNum(int num)
+    {
+        int result = num * num;
+        Debug.Log(“Power = “ +result);
+    }
+}
+</code></pre></div></div>
+<p><br />
+<br /></p>
+<h2 id="event와-delegate의-차이점">Event와 Delegate의 차이점</h2>
+
+<ul>
+  <li>델리게이트가 public이라면, 이벤트 변수는 private 같은 느낌이다.</li>
+  <li>델리게이트 변수는 자신이 속한 클래스 외부에서도 호출이 가능하다.</li>
+  <li>이벤트 변수는 외부에서 호출이 불가능하고, 변수가 속한 클래스 내부에서만 사용하도록 제한되어있다.</li>
+  <li>이벤트는 특정 조건(사건)이 발생했을 때 자동으로 메소드를 호출하는 용도로 사용된다.
+<br />
+<br />
+    <h2 id="func--action">Func &amp; Action</h2>
+  </li>
+  <li>무명 델리게이트</li>
+  <li>미리 선언된 델리게이트 변수로써, 별도의 선언없이 사용가능하다.<br />
+<br />
+<br />
+    <h2 id="func-delegate">Func Delegate</h2>
+  </li>
+  <li>Func은 반환값(Return Type)이 ‘있는’ 메소드를 참조하는 델리게이트 변수</li>
+  <li>.NET Framework에는 매개변수가 없는 메소드부터 매개변수가 16개인 메소드까지 총 17가지의 Func 델리게이트가 준비되어있다.</li>
+  <li>Func Delegate를 사용할 때는 반드시 반환형을 지정해줘야 한다.
+<br />
+<br />
+    <h2 id="action-delegate">Action Delegate</h2>
+  </li>
+  <li>Action은 반환값(Return Type)이 ‘없는’메소드를 참조하는 델리게이트 변수</li>
+  <li>Func Delegate와 그 쓰임새나 형식은 같으나, 반환값(Return Value)가 없다.
+<br />
+<br />
+    <h2 id="람다식-lamda">람다식 (Lamda)</h2>
+  </li>
+  <li>무명 메소드를 단순 계산식으로 표현한 것.</li>
+  <li>메소드는 크게 매개변수와 내부 식, 반환 값으로 구성되어있는데, 이들만 가지고 메소드를 계산으로 표현한다.</li>
+  <li>추후에 좀 더 자세하게 알아볼 필요성이 있음.
+Ex) button.addListener(() =&gt; 메소드명);</li>
+</ul>
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#unity">unity</a></li><li>
+        <a class="post-tag" href="/tags/#delegate">delegate</a></li><li>
+        <a class="post-tag" href="/tags/#event">event</a></li><li>
+        <a class="post-tag" href="/tags/#action">action</a></li><li>
+        <a class="post-tag" href="/tags/#func">func</a></li><li>
+        <a class="post-tag" href="/tags/#c">c</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/programming/2021/05/19/cpp-effective-til.html">
+          Effective C++ Today I Learn (Day1)
+          <small><time datetime="2021-05-19T00:00:00+09:00">19 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/05/09/leetcode-linkedlistcycle.html">
+          LeetCode LinkedList Cycle 문제
+          <small><time datetime="2021-05-09T00:00:00+09:00">09 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/04/20/leetcode-PalindromeLinkedList.html">
+          LeetCode PalindromeLinkedList 문제
+          <small><time datetime="2021-04-20T00:00:00+09:00">20 Apr 2021</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2017&nbsp;-&nbsp;2021 . All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

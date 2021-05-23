@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); "><header class="masthead">
+  
+  <div class="masthead-title">
+    <a href="/" title="Home"></a>
+  </div>
+  <div class="masthead-tagline">
+    <small></small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://vszhub@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://twitter.com/vszhub">
+            <i class="fab fa-twitter" title="Twitter"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/vszhub/not-pure-poole">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">Unity3D RigidBody Component</h1>
+  <div class="post-meta"><time datetime="2018-07-17T00:00:00+09:00" itemprop="datePublished">17 Jul 2018</time></div>
+
+  <p><br />
+최종 수정일 : 2018-08-13
+<br /></p>
+<h1 id="rigidbody-component"><strong>[Rigidbody Component]</strong></h1>
+<p><br /></p>
+<ul>
+  <li>GameObject가 물리 제어로 동작하게 하는 컴포넌트</li>
+  <li>물리 시뮬레이션을 통해서 오브젝트의 위치를 조절.</li>
+  <li>중력, 충돌에 대한 오브젝트의 반응의 크기를 계산.
+<br /><br />
+    <h2 id="property"><strong>Property</strong></h2>
+    <p><br /></p>
+    <ol>
+      <li>Mass : 질량. 상대적인 의미의 질량으로, 일반적인 kg, g 등의 무게 단위는 아니다. ‘A 물체 mass가 1, B 물체 mass가 10이라고 할 때 B물체는 A물체보다 10배 더 무겁다.’ 라고 해석하는 것. 보통은 1Mass = 1Kg이라고 가정 후 작업하는 것이 일반적.
+<br /></li>
+      <li>Drag : 이동할 때 적용되는 마찰계수(저항)
+<br /></li>
+      <li>Angular Drag : 회전할 때 적용되는 마찰계수(저항)
+<br /></li>
+      <li>Use Gravity : 중력 적용 여부
+<br /></li>
+      <li>Is Kinematic : 체크하면(True) 물리엔진의 영향을 받지 않으며, Transform 컴포넌트를 이용해 이동한다.
+<br /></li>
+      <li>Interpolate : 물리력을 이용한 움직임이 끊어지는 현상이 발생할 때 보간해준다.
+<br /></li>
+      <li>Interpolate : 이전 프레임의 Transform에 맞게 처리
+<br /></li>
+      <li>Extrapolate : 다음 프레임의 Transform의 변화를 추정해 움직임을 처리
+<br /></li>
+      <li>Collision Detection : 세밀한 충돌을 검출하기 위한 옵션값
+<br /></li>
+      <li>Discrete -&gt; Continuous -&gt; Continuous Dynamic 순서로 정밀 검출
+<br /></li>
+      <li>Freeze Position : X,Y,Z 축 중에서 해당 축으로의 이동을 막는다.
+<br /></li>
+      <li>Freeze Rotation : X,Y,Z 축 중에서 해당 축을 기준으로 한 회전을 막는다.
+<br />
+<img src="/static/assets/img/blog/Unity/rigidbody.png" alt="이해를 돕기 위해 Rigidbody Component 이미지를 첨부" />
+<br />
+참고 : https://docs.unity3d.com/kr/530/ScriptReference/Rigidbody.html</li>
+    </ol>
+  </li>
+</ul>
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#unity">unity</a></li><li>
+        <a class="post-tag" href="/tags/#rigidbody">rigidbody</a></li><li>
+        <a class="post-tag" href="/tags/#리지드바디">리지드바디</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/programming/2021/05/19/cpp-effective-til.html">
+          Effective C++ Today I Learn (Day1)
+          <small><time datetime="2021-05-19T00:00:00+09:00">19 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/05/09/leetcode-linkedlistcycle.html">
+          LeetCode LinkedList Cycle 문제
+          <small><time datetime="2021-05-09T00:00:00+09:00">09 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/04/20/leetcode-PalindromeLinkedList.html">
+          LeetCode PalindromeLinkedList 문제
+          <small><time datetime="2021-04-20T00:00:00+09:00">20 Apr 2021</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2017&nbsp;-&nbsp;2021 . All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

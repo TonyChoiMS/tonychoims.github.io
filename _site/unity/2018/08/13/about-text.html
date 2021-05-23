@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); "><header class="masthead">
+  
+  <div class="masthead-title">
+    <a href="/" title="Home"></a>
+  </div>
+  <div class="masthead-tagline">
+    <small></small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://vszhub@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://twitter.com/vszhub">
+            <i class="fab fa-twitter" title="Twitter"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/vszhub/not-pure-poole">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">Unity3D Text Component</h1>
+  <div class="post-meta"><time datetime="2018-08-13T00:00:00+09:00" itemprop="datePublished">13 Aug 2018</time></div>
+
+  <h1 id="text-component"><strong>[Text Component]</strong></h1>
+<ul>
+  <li>사용자에게 텍스트 메시지를 표현할 때 사용하는 컴포넌트.</li>
+  <li>다른 GUI 컴포넌트들과 함께 사용해서 UI를 표현할 수 있다.</li>
+</ul>
+
+<p><br /></p>
+<h2 id="property"><em>Property</em></h2>
+
+<ol>
+  <li>Text : 표시할 텍스트</li>
+  <li>Font : 텍스트에 사용할 폰트</li>
+  <li>Font Size : 표시할 폰트의 크기</li>
+  <li>Line Spacing : 멀티라인의 경우 글자의 상하 사이 간격</li>
+  <li>Rich Text : 입력 텍스트를 마크업 형식으로 표현할 지 여부(마크업 태그 표현 가능)</li>
+  <li>Alignment : 가로, 세로 글 정렬 옵션</li>
+  <li>Horizontal Overflow : Text 가로 영역을 넘어선 글의 처리 방식(Wrap : 자동개행 / Overflow : 범위를 넘어가도록 허용)</li>
+  <li>Vertical Overflow : Text 세로 영역을 넘어선 글의 처리 방식(Wrap / Overflow)</li>
+  <li>Best fit : Font Size를 무시하고 Text 컴포넌트의 범위에 맞게 크기를 조정한다.</li>
+  <li>Color : Text 색상</li>
+  <li>Material : Text에 별도의 머티리얼을 적용할 수 있다.
+<br />
+    <h2 id="text-effect"><em>Text Effect</em></h2>
+    <ul>
+      <li>Shadow 컴포넌트를 새로 추가함으로써, Text에 그림자 효과를 추가할 수도 있다.</li>
+    </ul>
+  </li>
+</ol>
+
+<p><img src="/static/assets/img/blog/Unity/textcomponent.png" alt="이해를 돕기 위해 Text Component 이미지를 첨부" /></p>
+
+<p>참고 : https://docs.unity3d.com/Manual/script-Text.html</p>
+
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#unity">unity</a></li><li>
+        <a class="post-tag" href="/tags/#text">text</a></li><li>
+        <a class="post-tag" href="/tags/#ui">ui</a></li><li>
+        <a class="post-tag" href="/tags/#component">component</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/programming/2021/05/19/cpp-effective-til.html">
+          Effective C++ Today I Learn (Day1)
+          <small><time datetime="2021-05-19T00:00:00+09:00">19 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/05/09/leetcode-linkedlistcycle.html">
+          LeetCode LinkedList Cycle 문제
+          <small><time datetime="2021-05-09T00:00:00+09:00">09 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/04/20/leetcode-PalindromeLinkedList.html">
+          LeetCode PalindromeLinkedList 문제
+          <small><time datetime="2021-04-20T00:00:00+09:00">20 Apr 2021</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2017&nbsp;-&nbsp;2021 . All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); "><header class="masthead">
+  
+  <div class="masthead-title">
+    <a href="/" title="Home"></a>
+  </div>
+  <div class="masthead-tagline">
+    <small></small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://vszhub@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://twitter.com/vszhub">
+            <i class="fab fa-twitter" title="Twitter"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/vszhub/not-pure-poole">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">Unity3D Generic Collection, Boxing and Unboxing</h1>
+  <div class="post-meta"><time datetime="2018-07-28T00:00:00+09:00" itemprop="datePublished">28 Jul 2018</time></div>
+
+  <p>최종 수정일 : 2018-08-13
+<br /></p>
+<h1 id="일반화-컬렉션"><strong>일반화 컬렉션</strong></h1>
+<p><br /></p>
+<ul>
+  <li>종류 : List, Queue, Stack, Dictionary</li>
+  <li>ArrayList, Queue, Stack, HashTable의 일반화 버전</li>
+  <li>using System.Collection.Generic; 네임스페이스 안에 존재하기 때문에 사용 선언 필수.
+<br />
+    <blockquote>
+      <p>일반화 컬렉션(Generic Collection)을 사용하는 이유.</p>
+    </blockquote>
+  </li>
+  <li>C# 언어 내부에서 제공하는 Collection(Stack, Queue, ArrayList, HashTable)에 데이터의 입, 출력이 있으면 그때마다 박싱과 언박싱이 계속해서 발생하게 되고, 데이터가 많아질수록 컴퓨터 성능에 상당한 부하가 발생하게 된다.</li>
+  <li>부하가 발생하는 원인 : 컬렉션은 데이터의 어떤 타입도 전부 object 타입으로 저장하기 때문에, 데이터에 접근할 때마다 본래 타입으로의 형식변환이 일어나기 때문이다. =&gt; Boxing과 UnBoxing.</li>
+  <li>성능 상의 이슈가 문제가 된다면, 컬렉션보단 일반화 컬렉션(Generic Collection)을 사용하기로 한다.
+<br />
+<br />
+    <h1 id="boxing"><strong>Boxing</strong></h1>
+  </li>
+  <li>값(Value) 형식을 Object형식 또는 이 값 형식에서 구현된 임의의 인터페이스 형식으로 변환하는 프로세스.</li>
+  <li>값 형식을 참조 형식으로 바꾸는 것.</li>
+  <li>메모리의 Stack 영역에서 Heap 영역으로 데이터가 복사되고, 그 복사된 데이터를 object가 참조하게 한다.(값 형식 -&gt; 참조 형식)</li>
+  <li>암시적이다.
+ <img src="/static/assets/img/blog/Unity/boxing.png" alt="Boxing의 예시" />
+<br />
+<br />
+    <h1 id="unboxing"><strong>UnBoxing</strong></h1>
+  </li>
+  <li>Boxing된 데이터를 Heap 영역에서 Stack영역으로 복사한다.(참조 형식 -&gt; 값 형식)</li>
+  <li>명시적이다.
+<img src="/static/assets/img/blog/Unity/unboxing.png" alt="UnBoxing의 예시" />
+<br />
+참고 : https://docs.microsoft.com/ko-kr/dotnet/csharp/programming-guide/types/boxing-and-unboxing</li>
+</ul>
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#unity">unity</a></li><li>
+        <a class="post-tag" href="/tags/#generic-collection">generic-collection</a></li><li>
+        <a class="post-tag" href="/tags/#boxing">boxing</a></li><li>
+        <a class="post-tag" href="/tags/#unboxing">unboxing</a></li><li>
+        <a class="post-tag" href="/tags/#일반화-콜렉션">일반화-콜렉션</a></li><li>
+        <a class="post-tag" href="/tags/#c">c</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/programming/2021/05/19/cpp-effective-til.html">
+          Effective C++ Today I Learn (Day1)
+          <small><time datetime="2021-05-19T00:00:00+09:00">19 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/05/09/leetcode-linkedlistcycle.html">
+          LeetCode LinkedList Cycle 문제
+          <small><time datetime="2021-05-09T00:00:00+09:00">09 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/04/20/leetcode-PalindromeLinkedList.html">
+          LeetCode PalindromeLinkedList 문제
+          <small><time datetime="2021-04-20T00:00:00+09:00">20 Apr 2021</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2017&nbsp;-&nbsp;2021 . All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); "><header class="masthead">
+  
+  <div class="masthead-title">
+    <a href="/" title="Home"></a>
+  </div>
+  <div class="masthead-tagline">
+    <small></small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://vszhub@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://twitter.com/vszhub">
+            <i class="fab fa-twitter" title="Twitter"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/vszhub/not-pure-poole">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">Unreal Engine LandScape에 대해서..</h1>
+  <div class="post-meta"><time datetime="2018-04-08T00:00:00+09:00" itemprop="datePublished">8 Apr 2018</time></div>
+
+  <ul>
+  <li>최종 수정일 : 2018-04-18</li>
+</ul>
+
+<h1 id="랜드스케이프란">랜드스케이프란?</h1>
+<ul>
+  <li>임의로 만들어진 모양의 그리드 3D 모델</li>
+  <li>X,Y 값 자동 계산(내가 건들수없음)</li>
+  <li>높이(Z) 값만 조각 기능을 통해서 제공</li>
+  <li>버텍스 사이의 길이는 100 -&gt; Scale값, 단위는 cm</li>
+  <li>연두색으로 나뉘어 있는 큰 단위는 Section</li>
+  <li>Component는 Section의 모임</li>
+  <li>Number Of Component : 한 랜드스케이프에 들어가는 컴포넌트의 갯수</li>
+  <li>정리</li>
+  <li>한개의 랜드스케이프에 여러개의 컴포넌트가 들어가고,</li>
+  <li>한개의 컴포넌트에 여러개의 섹션이 포함되어있으며,</li>
+  <li>한개의 섹션은 여러개의 버텍스로 이루어진다.</li>
+  <li>랜드스케이프 하나당 최대 길이는 8.161Km</li>
+  <li>Section Per Component -&gt; 한 컴포넌트에 몇개의 섹션을 지정할 것인가?</li>
+</ul>
+
+<h2 id="layer-info-object">Layer Info Object</h2>
+<p>랜드스케이프 레이어에 대한 정보가 들어있는 에셋.
+어느 지역에 얼마만큼의 강도로 텍스쳐를 칠할지의 강도</p>
+
+<h2 id="lod란">LOD란?</h2>
+<ul>
+  <li>Level Of Detail의 약자</li>
+  <li>플레이어를 기준으로 플레이어가 대상 스태틱 매쉬에 멀어지면 해당 매쉬를 덜 복잡한 버전 또는 보이지 않게끔 하여 레벨 퍼포먼스를 높이는 기술</li>
+  <li>.FBX로 저장된 매쉬로 구현.</li>
+</ul>
+
+<h2 id="폴리지-시스템">폴리지 시스템</h2>
+<ul>
+  <li>랜드스케이프에서 텍스쳐링 하듯 스태틱 매쉬를 렌더링 할 수 있는 시스템</li>
+  <li>스태틱 매쉬들 간의 Z fighting이 일어나지 않게 조정</li>
+</ul>
+
+<h2 id="폴리지-타입">폴리지 타입</h2>
+<ul>
+  <li>align to normal -&gt; 지형에 따라 폴리지를 어떻게 배치할 것인가?(나무는 꺼주고 잔디는 켜주는게 일반적)</li>
+  <li>Random Yaw -&gt; 스태틱 매쉬가 바라보는 방향</li>
+  <li>Cull Distance -&gt; 개활지의 경우 로딩을 어디까지(거리) 할 것인가?</li>
+  <li>컬리전 프리셋 -&gt; 충돌 처리</li>
+  <li>LandScape Layers -&gt; 특정 랜드스케이프에만 추가할 수 있게 하는 옵션</li>
+</ul>
+
+<h2 id="프로시저럴-함수">프로시저럴 함수</h2>
+<ul>
+  <li>단순한 절차적 생성 텍스처와 마스크를 빠프게 만들 수 있다.</li>
+  <li>임포트된 텍스처에 비해 메모리가 절약된다.</li>
+  <li>
+    <p>Procedural Foliage Volume</p>
+  </li>
+  <li>Procedural -&gt; Collsion Radius : 나무들 간의 사이 거리</li>
+  <li>Procedural -&gt; shade Radius : 일단 스킵</li>
+  <li>Procedural Foliage Blocking Volume -&gt; 폴리지를 다시 시뮬레이션을 눌러도 폴리지 타입이 생성되는 것을 방지한다.</li>
+</ul>
+
+<h2 id="스트리밍-레벨">스트리밍 레벨</h2>
+<ul>
+  <li>(작은 폴리지를 관리할 때 사용하는 것)퍼시스턴트 레벨의 자식 레벨, 퍼시스턴트가 살아있는 한, 메모리에 올렸다 내리는 것이 자연스러운 레벨</li>
+  <li>효율적인 메모리 관리가 가능</li>
+  <li>퍼시스턴트 레벨과 시공간을 공유.</li>
+</ul>
+
+<h2 id="current-level현재-레벨">Current Level(현재 레벨)</h2>
+<ul>
+  <li>액터를 추가할 때, 액터가 추가되는 맵의 레벨</li>
+  <li>레벨 창에서 파란색으로 이름이 표시되있는 것이 현재 레벨</li>
+</ul>
+
+<h2 id="level-bounds레벨-바운드">Level Bounds(레벨 바운드)</h2>
+<ul>
+  <li>스트리밍 레벨이 퍼시스턴트 레벨에서 어느정도 범위를 가지고 있는지 미리 계산을 해서 박스의 형태로 가지고 있는 것</li>
+  <li>폴리지는 액터 취급을 안해줌</li>
+  <li>레벨 바운드의 범위(streaming distance)를 직접 지정해주고 싶을 경우 레벨 탭의 월드 컴포지션으로 들어감.</li>
+  <li>하나의 레벨 바운드는 하나의 레이어만 할당할 수 있다.(1:1 관계)</li>
+</ul>
+
+<h2 id="world-composition월드-컴포지션">World Composition(월드 컴포지션)</h2>
+<ul>
+  <li>스트리밍 레벨이 어떻게 나뉘어있는지 한눈에 볼 수 있는 툴</li>
+  <li>레이어를 새로 생성해서 커스텀할 경우 스트리밍 거리를 커스텀 할 수 있다.</li>
+  <li>레이어는 수정 기능이 없음.</li>
+  <li>
+    <p>하나도 세팅되지 못한 레이어는 나중에 자동적으로 삭제됨.</p>
+  </li>
+  <li>[참조]언리얼엔진이 아닌, 맵을 구성할 때 사용하면 유용한 이미지 툴</li>
+  <li>월드 머신 / 월드 크리에이터 (유료 버전만 존재)</li>
+  <li>
+    <p>Wysilab - Instant Terra : 무료 트라이얼</p>
+  </li>
+  <li>Height Map : 버텍스 하나를 그림파일로 대응시키는 방식</li>
+  <li>흰색 : 최고 높은 지형의 색</li>
+  <li>검은색 : 최고 낮은 지형의 색</li>
+  <li>Height가 0~255 일 때, Import하면 -256<em>(Scale Z축의 값)~256</em>(Scale Z축의 값)으로 임포트됨</li>
+  <li>Scale = Instant Terra Range값 / 512(언리얼엔진 값 범위 [상수])
+// FOB</li>
+</ul>
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#actor">actor</a></li><li>
+        <a class="post-tag" href="/tags/#unreal">unreal</a></li><li>
+        <a class="post-tag" href="/tags/#unrealengine">unrealengine</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/programming/2021/05/19/cpp-effective-til.html">
+          Effective C++ Today I Learn (Day1)
+          <small><time datetime="2021-05-19T00:00:00+09:00">19 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/05/09/leetcode-linkedlistcycle.html">
+          LeetCode LinkedList Cycle 문제
+          <small><time datetime="2021-05-09T00:00:00+09:00">09 May 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/algorithm/2021/04/20/leetcode-PalindromeLinkedList.html">
+          LeetCode PalindromeLinkedList 문제
+          <small><time datetime="2021-04-20T00:00:00+09:00">20 Apr 2021</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2017&nbsp;-&nbsp;2021 . All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>
