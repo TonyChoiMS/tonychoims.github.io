@@ -12,6 +12,8 @@ url: http://tonychoims.github.io/  # url should be 'http://<github_username>.git
 img_path: /static/assets/img/  # url should be '/homepage/static/assets/img/blog' as before
 
 # author -- index page "about me" section
+lang: en
+
 author:  # change following line to your infomation.
   name: TonyChoi  # Be used at blog posts' author.
   first_name: Choi  # Be used at index page about me section.
@@ -70,3 +72,5 @@ plugins:
   - jekyll-remote-theme
 
 remote_theme: zivong/jekyll-theme-hydure
+
+execute: bundle
