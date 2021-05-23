@@ -63,9 +63,10 @@ markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
-=======
-theme: jekyll-theme-cayman
->>>>>>> d32a3005267c2b02d80ba2a6ffd8c041be6c015b
-=======
-theme: jekyll-theme-cayman
->>>>>>> d32a3005267c2b02d80ba2a6ffd8c041be6c015b
+
+theme: jekyll-theme-hydure
+
+plugins:
+  - jekyll-remote-theme
+
+remote_theme: zivong/jekyll-theme-hydure
