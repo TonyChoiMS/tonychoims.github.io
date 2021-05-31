@@ -3,10 +3,10 @@ layout: post
 title:  "Effective C++ Today I Learn (Day1)"
 date: 2021-05-19
 desc: "Day1 복습"
-keywords: "Direct3d, vector"
+keywords: "cpp, effective, const"
 categories: [Programming]
 comments: true
-tags: [cpp, Effective]
+tags: [cpp, Effective, const]
 icon: icon-html
 ---
 
