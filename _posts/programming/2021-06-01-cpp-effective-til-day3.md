@@ -13,13 +13,14 @@ icon: icon-html
 
 ## Effective C++ Day3
 
-> C++가 은근슬쩍 만들어 호출해 버리는 함수들에 촉각을 세우자
+> **C++가 은근슬쩍 만들어 호출해 버리는 함수들에 촉각을 세우자**
 
 C++에는 클래스 안에 직접 선언하지 않으면 컴파일러가 자동으로 생성해주는 멤버 함수들이 있습니다.
 
 - 복사 생성자 (Copy Constructor)
 - 복사 대입 연산자 (Copy Assignment Operator)
 - 생성자와 소멸자 (Constructor & destructor)
+    - C++11에서 이동생성자와 이동대입연산자도 추가되었다고 합니다. 이 부분에 대해서는 뒷부분에서 더 알아볼 예정입니다.
 
 이들은 모두 public 멤버이며, inline함수입니다.
 
