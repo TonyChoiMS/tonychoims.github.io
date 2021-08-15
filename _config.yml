@@ -1,38 +1,95 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# Welcome to Jekyll!
+#
+# This file contains configuration flags to customize your site
+#
 
-# Website settings
-title: TonyChoi
+# Name of your site (displayed in the header)
+name: TonyChoiMS Blog
+
+# Short bio or description (displayed in the header)
 description: Tony's blog, use Jekyll and github pages.
-keywords: tony, tonychoi, unity, unreal, game, game programming, programming
-baseurl:  /index.html # if you have suburl as homepage like '/homepage', please change it to '/homepage' and your repo's name should be 'homepage'
-url: http://tonychoims.github.io/  # url should be 'http://<github_username>.github.io/homepage' as before
-# url: http://127.0.0.1:4000
-img_path: /static/assets/img/  # url should be '/homepage/static/assets/img/blog' as before
 
-# author -- index page "about me" section
-lang: en
+# URL of your avatar or profile pic (you could use your GitHub profile pic)
+avatar: /static/assets/img/landing/avatar.jpg
 
-author:  # change following line to your infomation.
-  name: TonyChoi  # Be used at blog posts' author.
-  first_name: Choi  # Be used at index page about me section.
-  last_name: Minsu  # Be used at index page about me section.
-  avatar: /static/assets/img/landing/avatar.jpg  # upload your avatar at directory and edit it.
-  github_username: TonyChoiMs  # Leave blank if you don't have now
-  linkedin_id: # Leave blank if you don't have now
-  facebook_username: # Leave blank if you don't have now
-  twitter_username: # Leave blank if you don't have now
-  email: cms9286@gmail.com  # Leave blank if you don't have now
-  cv:   # A online CV can be printed as PDF, leave blank if you don't have now
-  # skill icons are on avatar's left and right side. Reference urls are http://fontawesome.io/ and http://fizzed.com/oss/font-mfizz
-  skill_icon1:
-    - name: icon-apache
-    - name: fa-linux
-  skill_icon2:
-    - name: fa-linux
-    - name: icon-apache
-  desc: TonyChoiMS's Game Programming Blog! Thank you for invite.  # Describe yourself.
+#
+# Flags below are optional
+#
+
+# Your website URL (e.g. https://forever-jekyll.github.io or https://forever-jekyll.com)
+# Used for Sitemap.xml and your RSS feed
+url: http://tonychoims.github.io/
+
+# If you're hosting your site at a Project repository on GitHub pages
+# (http://yourusername.github.io/repository-name)
+# and NOT your User repository (http://yourusername.github.io)
+# then add in the baseurl here, like this: "/repository-name"
+baseurl: ""
+
+# Navigation menu
+navigation_links:
+  - title: Blog
+    url: /
+
+  - title: About
+    url: /about
+
+  - title: Search
+    url: /search
+
+# Footer icons
+footer_links:
+  - title: Feed
+    url: feed.xml
+    icon: fa fa-rss-square
+
+  - title: GitHub
+    url: https://github.com/tonychoims
+    icon: fa fa-github-square
+
+# Enter your copyright text if you wish to override the default one.
+#copyright: "This site is made with <3 by *me, myself, and I*."
+
+#
+# !! You don't need to change any of the configuration flags below !!
+#
+
+permalink: pretty
+
+# Jekyll 3 now only supports Kramdown for Markdown
+kramdown:
+  # Use GitHub flavored markdown, including triple backtick fenced code blocks
+  input: GFM
+  # Jekyll 3 and GitHub Pages now support rouge for syntax highlighting
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    # Use existing pygments syntax highlighting css
+    css_class: 'highlight'
+
+# Pagination
+paginate: 5
+paginate_path: "/page/:num/"
+
+# Set the Sass partials directory, as we're using @imports
+sass:
+  sass_dir: _sass
+  style: :expanded # You might prefer to minify using :compressed
+
+# Use the following plug-ins
+gems:
+  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
+  - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jemoji
+
+# Exclude these files from your production _site
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - CNAME
 
 # comment
 disqus:  # if you wanna comment feature, go to https://disqus.com/ to get your configuration; if not, comment following two lines.
@@ -54,23 +111,3 @@ gio:  # if you wanna this feature, go to https://www.growingio.com/ to get your 
 
 ## donation
 donation: off  # type 'on'/'off' to choice display donation button at post page or not
-
-
-# Build settings
-encoding: utf-8
-
-# other settings
-highlighter: rouge
-markdown: kramdown
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-
-theme: jekyll-theme-hydure
-
-execute: bundle
-
-plugins:
-  - jekyll-remote-theme
-
-remote_theme: zivong/jekyll-theme-hydure
